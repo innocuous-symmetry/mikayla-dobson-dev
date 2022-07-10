@@ -2,7 +2,7 @@ import { Button, Drawer, List, ListItem } from "@mui/material"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 
-import MenuIcon from '@material-ui/icons/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
@@ -89,6 +89,6 @@ export default function Navbar() {
                     </ListItem>
                 </List>
             </Drawer>
-      </header>
+        </header>
     )
 }
