@@ -1,0 +1,15 @@
+@import "../helper/variables";
+
+%button-style {
+    border-radius: 12px;
+    border: 1px solid white;
+    background-color: $purple100;
+    color: darkslateblue;
+    padding: 8px;
+    &:hover {
+        background-color: $purple200;
+    }
+    &:active {
+        background-color: $purple100;
+    }
+}

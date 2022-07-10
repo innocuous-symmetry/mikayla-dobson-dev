@@ -14,7 +14,7 @@ const defaultFilter = {
 
 export default function Projects() {
     const [results, setResults] = useState();
-    const [filter, setFilter] = useState(defaultFilter);
+    const [search, setSearch] = useState('');
     const [text, setText] = useState();
 
     const searchInput = useRef();
@@ -23,13 +23,13 @@ export default function Projects() {
     useEffect(() => {
         let result = [];
 
-        if (filter === defaultFilter) {
+        if (!search) {
             setResults(projectsArray.map(each => each.jsx));
             return;
         }
 
-        if (filter.searchTerm) {
-            let termLower = filter.searchTerm.toLowerCase();
+        if (search) {
+            let termLower = search.toLowerCase();
 
             let i = 0;
             while (i < text.length) {
@@ -43,12 +43,10 @@ export default function Projects() {
                 }
                 i++;
             }
-        } else if (filter.inProgress) {
-            result = result.filter(obj => !obj.inProgress);
         }
 
         setResults(result.map(each => each.jsx));
-    }, [filter]);
+    }, [search]);
 
     useEffect(() => {
         let projectText = [];
@@ -82,14 +80,6 @@ export default function Projects() {
         setText(projectText);
     }, [])
 
-    const handleChange = (e) => {
-        e.preventDefault();
-        setFilter({
-            ...filter,
-            language: e.target.value
-        })
-    }
-
     const handleReset = () => {
         setFilter(defaultFilter);
         searchInput.current.value = '';
@@ -105,27 +95,9 @@ export default function Projects() {
                 <div className="filter-controls">
                     <input
                         ref={searchInput} type="text"
-                        onChange={(e) => setFilter({...filter, searchTerm: e.target.value})}
+                        onChange={(e) => setSearch(e.target.value)}
                         placeholder="Enter a search term">
                     </input>
-                    <select ref={languageFilter} onChange={handleChange} name="language" id="language">
-                        <option value="">- Language -</option>
-                        <option value="Express">Express</option>
-                        <option value="JavaScript">JavaScript</option>
-                        <option value="MaterialUI">Material UI</option>
-                        <option value="MongoDB">MongoDB</option>
-                        <option value="PostgreSQL">PostgreSQL</option>
-                        <option value="Python">Python</option>
-                        <option value="React">React</option>
-                        <option value="Redux">Redux</option>
-                        <option value="REST_API">REST API</option>
-                        <option value="Sass">Sass</option>
-                        <option value="SQLite">SQLite</option>
-                        <option value="TypeScript">TypeScript</option>
-                    </select>
-                    <button onClick={() => setFilter({...filter, inProgress: !filter.inProgress})}>
-                            {filter.inProgress ? "Show" : "Hide"} in-progress
-                        </button>
                     <button onClick={handleReset}>Reset</button>
                 </div>
             </section>

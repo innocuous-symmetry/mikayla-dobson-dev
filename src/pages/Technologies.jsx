@@ -10,7 +10,13 @@ export default function Technologies() {
     return (
         <div className="technologies-page" style={htmlTheme}>
             {techList.map(item => {
-                return <MainTopic key={v4()} name={item.topic} subtopics={item.subtopics} />
+                return (
+                    <MainTopic
+                        key={v4()}
+                        name={item.topic}
+                        subtopics={item.subtopics}
+                    />
+                );
             })}
         </div>
     )

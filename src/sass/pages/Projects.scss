@@ -15,8 +15,11 @@
   
       .filter-controls {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         width: 80%;
+        > * {
+          margin: 1rem;
+        }
       }
     }
   
