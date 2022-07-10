@@ -14,7 +14,7 @@
     .navbar-left {
       display: flex;
       flex-direction: row;
-      width: 50%;
+      width: 75%;
       justify-content: flex-start;
       align-items: baseline;
     }
@@ -24,9 +24,10 @@
       flex-direction: row;
       justify-content: flex-end;
       padding-right: 1rem;
-      width: 50%;
+      width: 25%;
     }
 
+    // top right corner, Mikayla Dobson text
     a {
       transition: color 150ms ease;
       color: black;
@@ -48,17 +49,5 @@
       font-weight: 400;
       position: relative;
       padding-left: 1rem;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    .app-navbar {
-        .navbar-left {
-            width: 80vw;
-        }
-        a, h2 {
-            font-weight: 600;
-            font-size: 1.25rem;
-        }
     }
 }
