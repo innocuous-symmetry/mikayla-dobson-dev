@@ -7,52 +7,25 @@ export const DocumentStyle = {
         flexDirection: 'column',
         alignItems: 'center',
         minHeight: '100vh',
-        height: '100%',
-    },
-    linkStyle: {
-        color: deepPurple[300],
-        textDecoration: 'none'
-    },
-    buttonStyle: {
-        backgroundColor: deepPurple[200],
-        color: deepPurple[500],
-        '&:hover': {
-            backgroundColor: purple[400],
-            color: deepPurple[50],
-        },
-        width: '25vw',
-        height: '10rem',
-        margin: '2rem',
-    },
-    galleryArrowStyle: {
-        width: '8vw',
-        height: '10rem',
-        display: 'flex',
-        justifyContent: 'center',
-        color: deepPurple[50],
-        backgroundColor: deepPurple[400],
-        '&:hover': {
-            backgroundColor: deepPurple[500],
-        }
-    },
-    galleryCards: {
-        width: '3rem',
-        height: '1rem',
-        margin: '0.8rem'
     },
     dividerStyle: {
         width: '80%',
         color: '#000000',
         borderWidth: '2px'
-    },
+    }
+}
 
-    stockGallery: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: '85vw',
-        height: '45vh',
+export const SidebarStyle = {
+    background: {
+        backgroundColor: purple[300],
+        opacity: 0.7,
+    },
+    list: {
+        height: '100vh',
+        backgroundColor: pink[100]
+    },
+    listItem: {
+        backgroundColor: pink[200]
     }
 }
 
@@ -124,39 +97,11 @@ export const AboutMePage = {
     projectCards: {
         backgroundColor: indigo[800],
         color: indigo[50],
-        width: '300px',
-        height: '300px',
-        padding: '2rem',
     },
     cardDimensions: {
         display: 'flex',
         flexDirection: 'column',
         borderRadius: '12px',
         textAlign: 'center',
-    },
-    aboutGallery: {
-        display: 'flex',
-        height: '70vh',
-        width: '80vw',
-        justifyContent: 'space-around',
-        margin: '2rem',
     }
-}
-
-export const TechnologiesPage = {
-    technologyCard: {
-        backgroundColor: indigo[50],
-        width: '40vw',
-        margin: '2rem',
-        borderRadius: '15px',
-    }
-}
-
-export const ProjectsPage = {
-    projectsButton: {
-        backgroundColor: purple[500],
-        color: indigo[50],
-        height: '45%',
-        width: '5%',
-    },
 }

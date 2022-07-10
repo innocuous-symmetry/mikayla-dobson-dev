@@ -3,7 +3,20 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 
 import MenuIcon from '@mui/icons-material/Menu';
+import { SidebarStyle } from "../styles/Style";
 import '../sass/Navbar.scss';
+import { v4 } from "uuid";
+
+const { background, list, listItem } = SidebarStyle;
+
+const navOptions = [
+    "Home",
+    "About Me",
+    "My Projects",
+    "My Technologies",
+    "Links",
+    "Creative Work"
+]
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
@@ -12,6 +25,7 @@ export default function Navbar() {
     const navigate = useNavigate();
 
     useEffect(() => {
+        setOpen(false);
         switch (selected) {
             case 0:
                 navigate('/');
@@ -50,44 +64,29 @@ export default function Navbar() {
                 </Button>
             </div>
 
-            <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
-                <List component="nav">
+            <Drawer
+                anchor="right"
+                onClose={() => setOpen(false)}
+                open={open}
+            >
 
-                    <ListItem button
-                        selected={selected===0}
-                        onClick={() => setSelected(0)}>
-                            Home
-                    </ListItem>
+                <List sx={list} component="nav">
 
-                    <ListItem button
-                        selected={selected===1}
-                        onClick={() => setSelected(1)}>
-                            About me
-                    </ListItem>
+                    {
+                        navOptions.map(each => {
+                            let idx = navOptions.indexOf(each);
+                            return (
+                                <ListItem button
+                                    sx={listItem}
+                                    key={v4()}
+                                    selected={selected === idx}
+                                    onClick={() => setSelected(idx)}>
+                                        {each}
+                                </ListItem>
+                            )
+                        })
+                    }
 
-                    <ListItem button
-                        selected={selected===2}
-                        onClick={() => setSelected(2)}>
-                            My Projects
-                    </ListItem>
-
-                    <ListItem button
-                        selected={selected===3}
-                        onClick={() => setSelected(3)}>
-                            My Technologies
-                    </ListItem>
-
-                    <ListItem button
-                        selected={selected===4}
-                        onClick={() => setSelected(4)}>
-                            Links
-                    </ListItem>
-
-                    <ListItem button
-                        selected={selected===5}
-                        onClick={() => setSelected(5)}>
-                            My Creative Work
-                    </ListItem>
                 </List>
             </Drawer>
         </header>

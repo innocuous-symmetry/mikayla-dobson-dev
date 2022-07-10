@@ -1,53 +1,58 @@
 @import "helper/variables";
 
 .app-navbar {
-    background-color: $purple200;
-    height: 4.5rem;
+  background-color: $purple200;
+  height: 4.5rem;
+  display: flex;
+  border-bottom: 1px solid black;
+  font-family: 'Open Sans', sans-serif;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 9;
+
+  .navbar-left {
     display: flex;
-    border-bottom: 1px solid black;
-    font-family: 'Open Sans', sans-serif;
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    z-index: 9;
+    flex-direction: row;
+    width: 75%;
+    justify-content: flex-start;
+    align-items: baseline;
+  }
 
-    .navbar-left {
-      display: flex;
-      flex-direction: row;
-      width: 75%;
-      justify-content: flex-start;
-      align-items: baseline;
+  .navbar-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-right: 1rem;
+    width: 25%;
+  }
+
+  // top right corner, Mikayla Dobson text
+  a {
+    transition: color 150ms ease;
+    color: black;
+    font-weight: 900;
+    font-size: 2rem;
+    padding-left: 1rem;
+    border-right: 1px solid black;
+    padding-right: 1rem;
+    text-decoration: none;
+    &:visited {
+      color: inherit;
     }
-
-    .navbar-right {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
-      padding-right: 1rem;
-      width: 25%;
-    }
-
-    // top right corner, Mikayla Dobson text
-    a {
+    &:hover {
+      color: purple;
       transition: color 150ms ease;
-      color: black;
-      font-weight: 900;
-      font-size: 2rem;
-      padding-left: 1rem;
-      border-right: 1px solid black;
-      padding-right: 1rem;
-      text-decoration: none;
-      &:visited {
-        color: inherit;
-      }
-      &:hover {
-        color: purple;
-        transition: color 150ms ease;
-      }
     }
-    h2 {
-      font-weight: 400;
-      position: relative;
-      padding-left: 1rem;
-    }
+  }
+  h2 {
+    font-weight: 400;
+    position: relative;
+    padding-left: 1rem;
+  }
+
+  // drawer component
+  .side-drawer {
+    background-color: red;
+  }
 }

@@ -8,22 +8,56 @@
     top: 4.5rem;
   }
 
+  // tablet queries
   @media only screen and (max-width: 1050px) {
-    .app-navbar {
-      background-color: red;
+    .welcome-page {
+      #header-card {
+        padding: 0.7rem;
+        h3 {
+          font-size: 1.2rem;
+        }
+        h4 {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .about-me-page {
+      height: auto;
+      .about-gallery {
+        width: 90vw;
+        height: 100%;
+        flex-flow: column nowrap;
+        align-items: center;
+        .fade {
+          width: 400px;
+          height: 300px;
+          overflow-y: scroll;
+        }
+      }
+    }
+
+    .projects-page {
+      .filter-panel {
+        width: 65%;
+      }
     }
   }
   
+  // mobile queries
   @media only screen and (max-width: 600px) {
-      .app-navbar {
-        background-color: orange;
-          .navbar-left {
-              width: 80vw;
-          }
-          a, h2 {
-              font-weight: 600;
-              font-size: 1.25rem;
-          }
-      }
+    .app-navbar {
+      background-color: orange;
+        .navbar-left {
+            width: 80vw;
+        }
+        .navbar-right {
+          width: 20vw;
+        }
+        a, h2 {
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+    }
   }
 }

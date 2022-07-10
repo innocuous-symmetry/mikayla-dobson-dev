@@ -15,31 +15,72 @@ const defaultFilter = {
 export default function Projects() {
     const [results, setResults] = useState();
     const [filter, setFilter] = useState(defaultFilter);
-    const [panelStyle, setPanelStyle] = useState('');
+    const [text, setText] = useState();
 
     const searchInput = useRef();
     const languageFilter = useRef();
-    const projectPage = useRef();
 
     useEffect(() => {
-        if (!filter) setResults(projectsArray.map(each => each.jsx));
+        let result = [];
 
-        if (filter) {
-            let result = projectsArray;
-            if (filter.searchTerm) {
-                let termLower = filter.searchTerm.toLowerCase();
-                result = result.filter(obj => obj.name.toLowerCase().includes(termLower));
-            }
-            if (filter.language) {
-                let adjustedLang = ((filter.language === 'PostgreSQL' || filter.language === "Express") ? "PERN" : filter.language);
-                result = result.filter(obj => obj.languages.includes(adjustedLang));
-            }
-
-            if (filter.inProgress) result = result.filter(obj => !obj.inProgress);
-            
-            setResults(result.map(each => each.jsx));
+        if (filter === defaultFilter) {
+            setResults(projectsArray.map(each => each.jsx));
+            return;
         }
+
+        if (filter.searchTerm) {
+            let termLower = filter.searchTerm.toLowerCase();
+
+            let i = 0;
+            while (i < text.length) {
+                for (let field of text[i].text) {
+                    if (field.includes(termLower)) {
+                        result.push(projectsArray[i]);
+                        break;
+                    } else {
+                        continue;
+                    }
+                }
+                i++;
+            }
+        } else if (filter.inProgress) {
+            result = result.filter(obj => !obj.inProgress);
+        }
+
+        setResults(result.map(each => each.jsx));
     }, [filter]);
+
+    useEffect(() => {
+        let projectText = [];
+        let i = 0;
+        while (i < projectsArray.length) {
+            let project = {
+                projectID: i,
+                text: []
+            }
+
+            for (let each of projectsArray[i].jsx.props.children) {
+                if (Array.isArray(each.props.children)) {
+                    for (let nested of each.props.children) {
+                        if (typeof nested === 'string') {
+                            const newText = nested.toLowerCase();
+                            project.text.push(newText);
+                        } else {
+                            const newText = nested.props.children.toLowerCase();
+                            project.text.push(newText);
+                        }
+                    }
+                } else {
+                    const newText = each.props.children.toLowerCase();
+                    project.text.push(newText);
+                }
+            }
+
+            projectText.push(project);
+            i++;
+        }
+        setText(projectText);
+    }, [])
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -55,33 +96,11 @@ export default function Projects() {
         languageFilter.current.value = '';
     }
 
-    useEffect(() => {
-        const handleScroll = (e) => {
-            let position = window.scrollY;
-
-            if (position > 150) {
-                setPanelStyle("filter-anim-one");
-            } else {
-                setPanelStyle("");
-            }
-        }
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        }
-    }, []);
-
-    useEffect(() => {
-        console.log(panelStyle);
-    }, [panelStyle]);
-
     return (
         <div className="projects-page" style={htmlTheme}>
             <h1>Check out these projects from my portfolio!</h1>
 
-            <section className={`filter-panel ${panelStyle}`}>
+            <section className={`filter-panel`}>
                 <h2>Filter by:</h2>
                 <div className="filter-controls">
                     <input

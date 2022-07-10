@@ -6,8 +6,8 @@ import '../sass/pages/Welcome.scss';
 
 import { DocumentStyle, WelcomePage } from '../styles/Style';
 
-const { pageTheme, galleryTheme, galleryRow, galleryPages, welcomeFooter, mainHeaderCard } = WelcomePage;
-const { buttonStyle, galleryArrowStyle, galleryCards, dividerStyle } = DocumentStyle;
+const { pageTheme, welcomeFooter, mainHeaderCard } = WelcomePage;
+const { dividerStyle } = DocumentStyle;
 
 // Web page logic
 

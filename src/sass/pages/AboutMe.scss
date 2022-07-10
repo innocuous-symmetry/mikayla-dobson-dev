@@ -20,6 +20,21 @@
   .card-title {
     text-transform: uppercase;
   }
+
+  .fade {
+    width: 300px;
+    height: 300px;
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+
+  .about-gallery {
+    display: flex;
+    height: 70vh;
+    width: 85vw;
+    justify-content: space-between;
+    margin: 2rem;
+  }
   
   @keyframes fade-in {
     from {
