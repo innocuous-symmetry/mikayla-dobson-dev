@@ -1,5 +1,5 @@
-import '../App.scss';
 import { DocumentStyle, AboutMePage } from '../styles/Style';
+import '../sass/pages/AboutMe.scss';
 
 import Card from '@mui/material/Card';
 

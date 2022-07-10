@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+@import "helper/variables";
+@import "helper/mixins";
+
+.App {
+  main {
+    text-align: center;
+    position: relative;
+    top: 4.5rem;
+  }
+}
+
+.projects-page {
+  .filter-panel {
+    display: flex;
+    position: static;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    padding: 1rem;
+    width: 40vw;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    transition: align-items 1s ease,
+                position 1s ease
+    ;
+
+    .filter-controls {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+    }
+
+  }
+  .filter-anim-one {
+    position: sticky;
+    left: 2rem;
+    top: 6rem;
+    justify-content: flex-start;
+  }
+  .filter-anim-two {
+
+  }
+
+  .project-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+
+    > * {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: lightblue;
+      width: 80%;
+      height: auto;
+      margin-bottom: 2rem;
+      .links {
+        display: flex;
+        width: 75%;
+        align-items: baseline;
+        justify-content: space-around;
+      }
+      a:last-child {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

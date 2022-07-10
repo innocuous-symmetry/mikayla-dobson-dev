@@ -1,4 +1,5 @@
 import { Card } from "@mui/material";
+import { v4 } from 'uuid';
 
 export const projectsArray = [
     {
@@ -6,7 +7,7 @@ export const projectsArray = [
         languages: ["TypeScript", "React", "PERN", "REST_API"],
         inProgress: true,
         jsx: (
-            <Card>
+            <Card key={v4()}>
                 <h1>Mikayla's E-Commerce Store</h1>
                 <p>A fully-featured e-commerce platform</p>
                 <p>Built in React with TypeScript, Node/Express, and PostgreSQL</p>
@@ -22,7 +23,7 @@ export const projectsArray = [
         inProgress: true,
         deployed: true,
         jsx: (
-            <Card>
+            <Card key={v4()}>
                 <h1>Procedural Drones</h1>
                 <p>An experimental space for building out procedural music generation using vanilla JavaScript</p>
                 <p>Uses Tone.js to interact with the Web Audio API</p>
@@ -40,7 +41,7 @@ export const projectsArray = [
         inProgress: false,
         deployed: true,
         jsx: (
-            <Card>
+            <Card key={v4()}>
                 <h1>Reddit, but it's all cats</h1>
                 <p>A read-only Reddit client -- this site fetches data from Reddit and displays a curated feed.</p>
                 <p>This was built on Reddit's JSON API, using React/Redux and CSS.</p>
@@ -57,7 +58,7 @@ export const projectsArray = [
         languages: ["Python", "SQLite"],
         inProgress: false,
         jsx: (
-            <Card>
+            <Card key={v4()}>
                 <h1>Personal Timestamp Generator</h1>
                 <p>A small-scale timestamp/productivity management tool for individual use and logging of 
                     time, including compartmentalization by task and some aggregate functions based on queries.
@@ -72,12 +73,10 @@ export const projectsArray = [
         languages: ["HTML/CSS", "JavaScript"],
         inProgress: true,
         jsx: (
-            <Card>
+            <Card key={v4()}>
                 <h1>Musical Counterpoint Bot</h1>
                 <p>A web-based program with functionality to evaluate sample solutions of problems in 
                     species-based counterpoint, as detailed by Johann Fux in <em>Gradus ad Parnassum.</em></p>
-                <p>This project is intended to be used as a practical application of linked lists and 
-                    other compound data structures in JavaScript.</p>
                 <p>In progress. Using vanilla HTML/CSS/JS.</p>
             </Card>
         )
@@ -87,7 +86,7 @@ export const projectsArray = [
         languages: ["React", "MongoDB", "MERN", "React", "REST_API", "Socket.io", "Sass", "MaterialUI"],
         inProgress: true,
         jsx: (
-            <Card>
+            <Card key={v4()}>
                 <h1>Password Game</h1>
                 <p>As part of a mentorship program hosted by Metazu Studio</p>
                 <p>Implemented using MongoDB, React, and Node/Express, styled with Material UI/SCSS.</p>
@@ -100,7 +99,7 @@ export const projectsArray = [
         languages: ["React", "PERN", "Socket.io"],
         inProgress: true,
         jsx: (
-            <Card>
+            <Card key={v4()}>
                 <h1>Splinter</h1>
                 <p>A clone of a popular card-based resource gathering game</p>
                 <p>Local multiplayer, with plans to build out online multiplayer and solo vs. CPU</p>
@@ -113,7 +112,7 @@ export const projectsArray = [
         languages: ["React"],
         inProgress: false,
         jsx: (
-            <Card>
+            <Card key={v4()}>
                 <h1>Carenest</h1>
                 <p>Designed in collaboration with Faith Magras, Elvis Hernandez, and Daytreon Dean 
                     as a submission for #HACKTN in March 2022.</p>
@@ -122,11 +121,11 @@ export const projectsArray = [
         )
     },
     {
-        name: "This Site",
+        name: "About Mikayla",
         languages: ["React", "Sass", "MaterialUI"],
         inProgress: true,
         jsx: (
-            <Card>
+            <Card key={v4()}>
                 <h1>And, last but not least, the site you see here!</h1>
                 <p>This site is built using React, Material UI, and SCSS, and is hosted with Netlify.</p>
                 <a target="_blank" rel="noreferrer" href="https://github.com/innocuous-symmetry/about-mikayla">View the site repo here!</a>

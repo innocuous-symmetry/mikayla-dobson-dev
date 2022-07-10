@@ -1,7 +1,6 @@
-import '../App.scss';
-import { useEffect, useState, useRef } from 'react';
 import { Avatar, Button, Card, Divider } from '@mui/material';
 import profile from '../media/profile.jpeg';
+import '../sass/pages/Welcome.scss';
 
 // SX style object imports
 

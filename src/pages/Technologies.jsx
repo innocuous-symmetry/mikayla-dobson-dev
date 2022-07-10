@@ -1,4 +1,4 @@
-import '../App.scss';
+import '../sass/pages/Technologies.scss';
 
 import Card from '@mui/material/Card';
 import Chip from '@mui/material/Chip';

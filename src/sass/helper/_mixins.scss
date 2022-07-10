@@ -1,0 +1,3 @@
+@mixin staggered-entry($interval) {
+    animation: 0.5s fade-in #{$interval}s linear forwards;
+}

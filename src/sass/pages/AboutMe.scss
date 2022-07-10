@@ -1,0 +1,47 @@
+@import "../helper/variables";
+@import "../helper/mixins";
+
+.about-me-page {
+  h1 {
+    color: darkblue;
+    font-weight: 800;
+    font-size: 4rem;
+  }
+  a {
+    color: white;
+    border-radius: 12px;
+    transition: color 0.3s linear;
+    text-decoration: none;
+    &:hover {
+      color: $purple200;
+      transition: color 0.3s linear;
+    }
+  }
+  .card-title {
+    text-transform: uppercase;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .fade {
+    opacity: 0;
+    transition: 0.5s transform ease;
+
+    &.one {
+      @include staggered-entry(0);
+    }
+    &.two {
+      @include staggered-entry(0.6);
+    }
+    &.three {
+      @include staggered-entry(1.2);
+    }
+  }
+}
