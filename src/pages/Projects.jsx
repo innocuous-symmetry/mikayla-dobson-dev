@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { DocumentStyle } from '../styles/Style';
 import { projectsArray } from '../components/ProjectsArray';
 import { Divider } from '@mui/material';
-import '../sass/App.scss';
+import '../sass/pages/Projects.scss';
 
 const { htmlTheme, dividerStyle } = DocumentStyle;
 

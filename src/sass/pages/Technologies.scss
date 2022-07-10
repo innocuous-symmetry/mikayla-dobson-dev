@@ -2,48 +2,22 @@
 @import "../helper/animations";
 
 .technologies-page {
-    .tech-scrollbar {
-        height: 5rem;
-        min-width: 60rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        left: 0;
-        overflow-x: hidden;
-        animation: 30s linear tech-scroll infinite;
-        .tech-bar-item {
+    .main-topic {
+        width: 70vw;
+        margin: 1rem 0;
+        padding: 1rem;
+    }
+
+    .subtopic-card {
+        .subtopics {
             display: flex;
-            align-items: center;
+            flex-flow: row wrap;
             justify-content: center;
-            position: relative;
-            left: 0;
-            top: 0.3rem;
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin: 0 0.3rem;
             padding: 1rem;
-            background-color: $purple200;
-            height: 5rem;
-            width: 20rem;
+            & > * {
+                padding: 0.5rem;
+                margin: 0.5rem;
+            }
         }
-    }
-    
-    .backup-bar {
-      bottom: 5rem;
-      animation: 30s linear 15s tech-scroll infinite, 15s hide-until-start;
-    }
-    
-    .from-right {
-      animation: 30s linear from-right infinite;
-    }
-    .backup-from-right {
-      bottom: 5rem;
-      animation: 30s linear 15s from-right infinite, 15s hide-until-start;
-    }
-    
-    .variant-2 {
-      background-color: #62286d !important;
-      color: white !important;
     }
 }
