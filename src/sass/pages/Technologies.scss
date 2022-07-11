@@ -4,6 +4,10 @@
 @import "../components/Button";
 
 .technologies-page {
+    .tech-title {
+        font-size: 1.4rem;
+        font-weight: bold;
+    }
     .main-topic {
         display: flex;
         flex-direction: column;

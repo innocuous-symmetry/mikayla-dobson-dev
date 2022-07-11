@@ -1,78 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
+@import "helper/queries";
+
 .App {
   main {
     text-align: center;
     position: relative;
     top: 4.5rem;
   }
-
-  // tablet queries
-  @media only screen and (max-width: 1050px) {
-    .welcome-page {
-      #header-card {
-        padding: 0.7rem;
-        h3 {
-          font-size: 1.2rem;
-        }
-        h4 {
-          font-size: 1rem;
-        }
-      }
-    }
-
-    .about-me-page {
-      height: auto;
-      .about-gallery {
-        width: 90vw;
-        height: 100%;
-        flex-flow: column nowrap;
-        align-items: center;
-        .fade {
-          width: 400px;
-          height: 300px;
-          overflow-y: scroll;
-        }
-      }
-    }
-
-    .projects-page {
-      .filter-panel {
-        margin-bottom: 2rem;
-        width: 65%;
-      }
-    }
-
-    .technologies-page {
-      .main-topic {
-        width: 70vw;
-      }
-    }
-
-    .creative-works-page {
-      > * {
-        width: 100%;
-      }
-
-      
-    }
-  }
   
-  // mobile queries
-  @media only screen and (max-width: 600px) {
-    .app-navbar {
-      background-color: orange;
-        .navbar-left {
-            width: 80vw;
-        }
-        .navbar-right {
-          width: 20vw;
-        }
-        a, h2 {
-            font-weight: 600;
-            font-size: 1.25rem;
-        }
-    }
-  }
+  @extend %tablet-queries;
+  @extend %mobile-queries;
 }

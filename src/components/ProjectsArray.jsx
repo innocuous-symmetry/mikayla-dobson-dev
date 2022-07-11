@@ -115,7 +115,7 @@ export const projectsArray = [
             <Card key={v4()}>
                 <h1>Carenest</h1>
                 <p>Designed in collaboration with Faith Magras, Elvis Hernandez, and Daytreon Dean 
-                    as a submission for #HACKTN in March 2022.</p>
+                    as a submission for #HACKTN with <a href="https://www.hackathonsinternational.com/">Hackathons International</a> in March 2022.</p>
                 <p>Produced using React. View the repo <a target="_blank" rel="noreferrer" href="https://github.com/Team-Carenest/carenest">here!</a></p>
             </Card>
         )
@@ -128,7 +128,7 @@ export const projectsArray = [
             <Card key={v4()}>
                 <h1>And, last but not least, the site you see here!</h1>
                 <p>This site is built using React, Material UI, and SCSS, and is hosted with Netlify.</p>
-                <a target="_blank" rel="noreferrer" href="https://github.com/innocuous-symmetry/about-mikayla">View the site repo here!</a>
+                <a target="_blank" rel="noreferrer" href="https://github.com/innocuous-symmetry/MikaylaDobsonDev">View the site repo here!</a>
             </Card>
         )
     }

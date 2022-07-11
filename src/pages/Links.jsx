@@ -10,7 +10,7 @@ const { htmlTheme } = DocumentStyle;
 export default function Links() {
     return (
         <div style={htmlTheme} className="links-page">
-            <h1>Find more about my work at the links below!</h1>
+            <h1>Connect with me and get a closer look at my work!</h1>
 
             <div className="links-container">
                 <Card>

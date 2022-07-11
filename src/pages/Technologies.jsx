@@ -9,6 +9,7 @@ const { htmlTheme } = DocumentStyle;
 export default function Technologies() {
     return (
         <div className="technologies-page" style={htmlTheme}>
+            <p className="tech-title">These are some of my most frequently used skills and technologies:</p>
             {techList.map(item => {
                 return (
                     <MainTopic

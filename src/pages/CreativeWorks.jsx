@@ -1,9 +1,13 @@
 import "../sass/pages/CreativeWorks.scss";
 import { DocumentStyle } from "../styles/Style";
+import { Card } from "@mui/material";
 
 import modulars from "../media/modulars.jpeg";
 import score from "../media/paper_score.jpeg";
 import guitar from "../media/with_guitar.png";
+
+import bandcamp from "../media/bandcamp-button-circle-line-black-128.png";
+import soundcloud from "../media/soundcloud-icon.png";
 
 export default function CreativeWorks() {
     return (
@@ -32,9 +36,19 @@ export default function CreativeWorks() {
                 </section>
 
                 <section className="cw-examples">
-                    <img src={guitar} alt="Mikayla playing the guitar" />
+                    <img className="examples-left" src={guitar} alt="Mikayla playing the guitar" />
                     <div className="examples-right">
                         <h2>If you're interested, you can find some samples of my music at the links below:</h2>
+                        <div className="sources">
+                            <Card>
+                                <img src={soundcloud} alt="SoundCloud logo" />
+                                <a href="https://soundcloud.com/mikaylamusic">My SoundCloud</a>
+                            </Card>
+                            <Card>
+                                <img src={bandcamp} alt="Bandcamp logo" />
+                                <a href="https://mikaylaclaire.bandcamp.com/releases">My Bandcamp</a>
+                            </Card>
+                        </div>
                     </div>
                 </section>
             </div>
