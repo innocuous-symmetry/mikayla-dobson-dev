@@ -2,7 +2,8 @@
 @import "components/Button";
 
 .app-navbar {
-  background-color: $purple200;
+  background-color: $darkGreen;
+  color: $indigoWhite;
   height: 4.5rem;
   display: flex;
   border-bottom: 1px solid black;
@@ -14,11 +15,15 @@
 
   button {
     @extend %button-style;
+    color: $indigoWhite;
     border-color: transparent;
     border-radius: 0;
     position: absolute;
     right: 0;
     height: 100%;
+    &:hover {
+      background-color: $mintGreen;
+    }
   }
 
   .navbar-left {
@@ -40,7 +45,6 @@
   // top right corner, Mikayla Dobson text
   a {
     transition: color 150ms ease;
-    color: black;
     font-weight: 900;
     font-size: 2rem;
     padding-left: 1rem;
@@ -51,7 +55,7 @@
       color: inherit;
     }
     &:hover {
-      color: purple;
+      color: $mintGreen;
       transition: color 150ms ease;
     }
   }

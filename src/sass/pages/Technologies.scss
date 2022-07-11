@@ -29,6 +29,7 @@
         padding: 1rem;
         button {
             @extend %button-style;
+            background-color: $indigoWhite;
         }
     }
 

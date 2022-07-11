@@ -33,19 +33,16 @@ export default function CreativeWorks() {
             </section>
 
             <section className="cw-examples">
-                <img className="examples-left" src={guitar} alt="Mikayla playing the guitar" />
-                <div className="examples-right">
-                    <h2>If you're interested, you can find some samples of my music at the links below:</h2>
-                    <div className="sources">
-                        <Card>
-                            <img src={soundcloud} alt="SoundCloud logo" />
-                            <a href="https://soundcloud.com/mikaylamusic">My SoundCloud</a>
-                        </Card>
-                        <Card>
-                            <img src={bandcamp} alt="Bandcamp logo" />
-                            <a href="https://mikaylaclaire.bandcamp.com/releases">My Bandcamp</a>
-                        </Card>
-                    </div>
+                <h2>If you're interested, you can find some samples of my music at the links below:</h2>
+                <div className="sources">
+                    <Card>
+                        <img src={soundcloud} alt="SoundCloud logo" />
+                        <a href="https://soundcloud.com/mikaylamusic">My SoundCloud</a>
+                    </Card>
+                    <Card>
+                        <img src={bandcamp} alt="Bandcamp logo" />
+                        <a href="https://mikaylaclaire.bandcamp.com/releases">My Bandcamp</a>
+                    </Card>
                 </div>
             </section>
         </div>

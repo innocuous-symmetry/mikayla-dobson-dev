@@ -3,19 +3,16 @@
 
 @import "helper/queries";
 @import "helper/variables";
+@import "components/Page";
 
 .App {
   main {
     text-align: center;
     position: relative;
     top: 4.5rem;
+    
     .page {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      width: 100vw;
-      background-color: $indigoWhite;
+      @extend %page;
     }
   }
   
