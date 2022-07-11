@@ -1,0 +1,58 @@
+.creative-works-page {
+    display: flex;
+    flex-direction: column;
+    width: 95vw;
+    margin: 0 2.5vw;
+
+    section {
+        margin-bottom: 3rem;
+        p {
+            display: inline-block;
+            background-color: white;
+            margin: 4px 8px;
+            padding: 1rem;
+            border-radius: 12px;
+            list-style: none;
+        }
+        h2 {
+            font-size: 1.2rem;
+        }
+    }
+
+    .cw-gallery {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 30rem;
+        margin-bottom: 3rem;
+        img {
+            display: inline;
+            height: 90%;
+            width: auto;
+            object-fit: cover;
+            margin: 0 1rem;
+        }
+    }
+    
+    .cw-information {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-end;
+        text-align: right;
+        margin: 0 2rem 3rem 0;
+    }
+
+    .cw-experiences {
+        display: flex;
+        flex-flow: row wrap;
+        text-align: left;
+    }
+
+    .cw-examples {
+        display: flex;
+        img {
+            max-width: 35vw;
+        }
+    }
+}

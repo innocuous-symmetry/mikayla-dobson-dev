@@ -58,5 +58,8 @@
     &.three {
       @include staggered-entry(1.2);
     }
+    &.four {
+      @include staggered-entry(1.8);
+    }
   }
 }

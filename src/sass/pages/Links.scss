@@ -1,0 +1,19 @@
+.links-page {
+    .links-container {
+        display: flex;
+        flex-flow: row wrap;
+        .MuiCard-root {
+            img {
+                width: 4rem;
+                height: auto;
+            }
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 8rem;
+            padding: 2rem;
+            margin: 1rem;
+        }
+    }
+}
