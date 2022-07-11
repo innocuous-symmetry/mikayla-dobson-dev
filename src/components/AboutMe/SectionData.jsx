@@ -1,5 +1,4 @@
 import { Card, Chip } from "@mui/material"
-import { NavLink } from "react-router-dom";
 import { v4 } from 'uuid';
 
 export const WhatIDo = {
@@ -63,6 +62,10 @@ const MetazuConcepts = [
     "UI/UX design", "Pair Programming", "REST APIs", "Database management", "Consulting with Clients"
 ]
 
+const MusicExperiences = [
+    "Avant Chamber Ballet", "Dallas Symphony Orchestra", "Boston University", "National Public Radio"
+]
+
 export const Employment = {
     title: "Employment",
     jsx: (
@@ -77,20 +80,37 @@ export const Employment = {
             </Card>
 
             <Card>
-                <h2 className="card-title">Musician</h2>
-                <h3>2010 - present</h3>
+                <h2 className="card-title">Singer-Songwriter, Composer</h2>
+                <h3>
+                    Contract, Independent
+                    <br/>
+                    2010 - present
+                </h3>
                 <p>
                     Multi-instrumentalist, singer-songwriter, and producer, well-versed in a number of musical idioms
                     and music technologies.
                 </p>
-                <a href="/creative-works" target="_blank">Learn More...</a>
+                <div className="chip-section">
+                    { MusicExperiences.map(each => <Chip key={v4()} label={each} /> ) }
+                </div>
             </Card>
 
             <Card>
-                <h2 className="card-title">Barista</h2>
-                <h3>Starbucks Coffee Co. | 2017 - 2021</h3>
-                <p><strong>Relevant:</strong> collaboration on the design and production of responsive web apps, including:</p>
+                <h2 className="card-title">Barista, Barista Trainer</h2>
+                <h3>Starbucks Coffee Co.<br/>2017 - 2021</h3>
+                <p>
+                    <strong>Relevant Duties:</strong> collaboration, problem-solving, streamlined execution of a process,
+                    attention to detail, adhering to standardized safety protocols, observing best practices, training new hires.
+                </p>
             </Card>
         </div>
+    )
+}
+
+export const Community = {
+    title: "Community",
+    jsx: (
+        <>
+        </>
     )
 }
