@@ -1,10 +1,10 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { DocumentStyle } from '../styles/Style';
 import { projectsArray } from '../components/ProjectsArray';
 import { Divider } from '@mui/material';
 import '../sass/pages/Projects.scss';
 
-const { htmlTheme, dividerStyle } = DocumentStyle;
+const { htmlTheme } = DocumentStyle;
 
 const defaultFilter = {
     language: '',
@@ -102,7 +102,7 @@ export default function Projects() {
                 </div>
             </section>
 
-            <Divider orientation="horizontal" sx={dividerStyle} />
+            <Divider orientation="horizontal" className="divider" />
 
             <div className="project-cards">
                 {results}

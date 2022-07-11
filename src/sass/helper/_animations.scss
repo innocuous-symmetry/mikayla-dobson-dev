@@ -1,3 +1,17 @@
+@keyframes sideToSide {
+    from {
+      transform: rotate(-1deg);
+    }
+
+    50% {
+      transform: rotate(1deg);
+    }
+
+    to {
+      transform: rotate(-1deg);
+    }
+}
+
 @keyframes hide-until-start {
     from {
     opacity: 0;
