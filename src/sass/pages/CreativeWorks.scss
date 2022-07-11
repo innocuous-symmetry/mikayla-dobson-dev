@@ -1,3 +1,5 @@
+@import "../helper/variables";
+
 .creative-works-page {
     display: flex;
     flex-direction: column;
@@ -48,6 +50,9 @@
         display: flex;
         flex-flow: row wrap;
         text-align: left;
+        p {
+            background-color: $indigoWhite;
+        }
     }
 
     .cw-examples {
@@ -67,10 +72,15 @@
                 height: 15rem;
                 align-items: center;
                 justify-content: space-evenly;
+                background-color: $indigoWhite;
+                margin-top: 1rem;
                 img {
                     width: 100px;
                     height: 100px;
                     margin-bottom: 1rem;
+                }
+                a {
+                    color: $indigoOne;
                 }
             }
         }

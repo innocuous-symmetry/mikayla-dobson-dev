@@ -5,7 +5,7 @@
 @mixin step-entry($len) {
     @for $i from 1 through $len {
         &:nth-child(#{$i}) {
-            @include staggered-entry($i * 0.6 - 0.6);
+            animation: 0.5s fade-in #{$i * 0.6 - 0.6}s linear forwards;
         }
     }
 }

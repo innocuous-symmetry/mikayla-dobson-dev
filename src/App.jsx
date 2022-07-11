@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './sass/App.scss';
 
 import Welcome from './pages/Welcome';
 import AboutMe from './pages/AboutMe';
@@ -9,6 +8,8 @@ import Links from './pages/Links';
 import CreativeWorks from './pages/CreativeWorks';
 import Navbar from './components/Navbar';
 
+import './sass/App.scss';
+
 function App() {
   return (
     <div className="App">  
@@ -17,11 +18,11 @@ function App() {
           <main>
             <Routes>
               <Route path='/' element={<Welcome />} />
-              <Route path='/about-me' element={<AboutMe />} />
-              <Route path='/projects' element={<Projects />} />
-              <Route path='/technologies' element={<Technologies />} />
-              <Route path='/links' element={<Links />} />
-              <Route path='/creative-works' element={<CreativeWorks />} />
+              <Route path='about-me' element={<AboutMe />} />
+              <Route path='projects' element={<Projects />} />
+              <Route path='technologies' element={<Technologies />} />
+              <Route path='links' element={<Links />} />
+              <Route path='creative-works' element={<CreativeWorks />} />
             </Routes>
           </main>
       </BrowserRouter>
