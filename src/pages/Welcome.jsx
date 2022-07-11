@@ -4,7 +4,7 @@ import '../sass/pages/Welcome.scss';
 
 export default function Welcome() {
     return (
-        <div className="welcome-page">
+        <div className="page welcome-page">
             <Card id="header-card" elevation={5}>
                 <Avatar alt="Mikayla Dobson" src={profile} sx={{width: 110, height: 110}} />
                 <h3>Hi, my name is Mikayla! I'm a junior-level full stack web developer.</h3>

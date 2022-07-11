@@ -19,9 +19,6 @@
     position: absolute;
     right: 0;
     height: 100%;
-    &:hover {
-      background-color: purple;
-    }
   }
 
   .navbar-left {
@@ -62,5 +59,19 @@
     font-weight: 400;
     position: relative;
     padding-left: 1rem;
+  }
+
+  // styles for open sidebar
+  .drawer {
+    .MuiButtonBase-root {
+      background-color: red;
+    }
+    .drawer-list {
+      height: 100vh;
+      background-color: red;
+    }
+    .drawer-list-item {
+      background-color: orange;
+    }
   }
 }

@@ -1,6 +1,6 @@
 @import "../helper/variables";
 @import "../helper/animations";
-
+@import "../helper/mixins";
 @import "../components/Button";
 
 .technologies-page {
@@ -8,12 +8,23 @@
         font-size: 1.4rem;
         font-weight: bold;
     }
+
     .main-topic {
         display: flex;
         flex-direction: column;
         align-items: center;
-        border-radius: 16px;
+
+        opacity: 0;
+        transition: 0.5s transform ease;
+
+        @include step-entry(4);
+
+        background-color: $indigoOne;
+        color: $indigoWhite;
+
         width: 50vw;
+        border-radius: 16px;
+
         margin: 1rem 0;
         padding: 1rem;
         button {
@@ -46,7 +57,8 @@
         }
 
         .MuiChip-root {
-            margin: 5px 0 1rem;
+            margin: 5px 4px 1rem;
+            background-color: $indigoWhite;
         }
     }
 }

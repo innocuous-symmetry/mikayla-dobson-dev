@@ -2,14 +2,15 @@
 
 %button-style {
     border-radius: 12px;
-    border: 1px solid white;
-    background-color: $purple100;
-    color: darkslateblue;
-    padding: 8px;
+    border: transparent;
+    background-color: inherit;
+    color: $indigoOne;
+    padding: 10px 1rem;
     &:hover {
-        background-color: $purple200;
+        background-color: $lightIndigo;
+        color: $indigoOne;
     }
     &:active {
-        background-color: $purple100;
+        background-color: $indigoWhite;
     }
 }

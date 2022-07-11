@@ -1,4 +1,7 @@
+@import "../helper/variables";
+
 .links-page {
+    background-color: $lilac;
     .links-container {
         display: flex;
         flex-flow: row wrap;

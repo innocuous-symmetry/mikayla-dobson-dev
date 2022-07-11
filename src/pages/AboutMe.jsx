@@ -1,13 +1,9 @@
-import { DocumentStyle } from '../styles/Style';
-import '../sass/pages/AboutMe.scss';
-
 import Card from '@mui/material/Card';
-
-const { htmlTheme } = DocumentStyle;
+import '../sass/pages/AboutMe.scss';
 
 export default function AboutMe() {
     return (
-        <div style={htmlTheme} className="about-me-page">
+        <div className="page about-me-page">
             <h1 className="what-i-do-header">What I Do</h1>
 
             <div className="about-gallery">

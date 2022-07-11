@@ -1,4 +1,5 @@
 @import "../components/Divider";
+@import "../helper/variables";
 
 .projects-page {
   .divider {
@@ -9,12 +10,16 @@
     display: flex;
     position: static;
     flex-direction: column;
-    background-color: white;
     align-items: center;
+
+    background-color: $darkGreen;
+    color: $indigoWhite;
+
     padding: 1rem;
-    width: 40vw;
-    border-radius: 12px;
     margin-bottom: 2rem;
+    border-radius: 12px;
+
+    width: 40vw;
     transition: align-items 1s ease,
                 position 1s ease
     ;
@@ -25,6 +30,10 @@
       width: 80%;
       > * {
         margin: 1rem;
+      }
+      input {
+        padding: 6px;
+        border-radius: 4px;
       }
     }
   }
@@ -39,15 +48,23 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      background-color: lightblue;
-      width: 80%;
+      background-color: $indigoOne;
+      color: $indigoWhite;
+      width: 80vw;
       height: auto;
       margin-bottom: 2rem;
+      border-radius: 12px;
       .links {
         display: flex;
         width: 75%;
         align-items: baseline;
         justify-content: space-around;
+        a {
+          color: $indigoWhite;
+          &:hover {
+            color: lightblue;
+          }
+        }
       }
       a:last-child {
         margin-bottom: 1rem;

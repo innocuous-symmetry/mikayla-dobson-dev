@@ -3,11 +3,8 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 
 import MenuIcon from '@mui/icons-material/Menu';
-import { SidebarStyle } from "../styles/Style";
 import '../sass/Navbar.scss';
 import { v4 } from "uuid";
-
-const { background, list, listItem } = SidebarStyle;
 
 const navOptions = [
     "Home",
@@ -65,19 +62,23 @@ export default function Navbar() {
             </div>
 
             <Drawer
+                className="drawer"
                 anchor="right"
                 onClose={() => setOpen(false)}
                 open={open}
             >
 
-                <List sx={list} component="nav">
+                <List
+                    component="nav"
+                    sx={{height: '100vh', backgroundColor: '#e8eaf6'}}
+                >
 
                     {
                         navOptions.map(each => {
                             let idx = navOptions.indexOf(each);
                             return (
                                 <ListItem button
-                                    sx={listItem}
+                                    className="drawer-list-item"
                                     key={v4()}
                                     selected={selected === idx}
                                     onClick={() => setSelected(idx)}>

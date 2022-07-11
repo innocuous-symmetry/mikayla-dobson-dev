@@ -1,10 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
-import { DocumentStyle } from '../styles/Style';
 import { projectsArray } from '../components/ProjectsArray';
 import { Divider } from '@mui/material';
 import '../sass/pages/Projects.scss';
-
-const { htmlTheme } = DocumentStyle;
 
 const defaultFilter = {
     language: '',
@@ -87,7 +84,7 @@ export default function Projects() {
     }
 
     return (
-        <div className="projects-page" style={htmlTheme}>
+        <div className="page projects-page">
             <h1>Check out these projects from my portfolio!</h1>
 
             <section className={`filter-panel`}>
