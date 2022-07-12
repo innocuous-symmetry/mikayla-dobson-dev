@@ -52,7 +52,7 @@ export default function Navbar() {
         <header className="app-navbar">
             <div className="navbar-left">
                 <a href="/" className="my-name">Mikayla Dobson</a>
-                <h2>Web Engineer</h2>
+                <h2 className="mobile-hide">Web Engineer</h2>
             </div>
 
             <div className="navbar-right">

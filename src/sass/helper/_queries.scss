@@ -16,15 +16,23 @@
     
         .about-me-page {
             height: auto;
+            .about-me-section {
+                h1 {
+                    font-size: 2.25rem;
+                }
+                button {
+                    padding: 8px;
+                }
+            }
             .about-gallery {
                 margin-top: 0;
                 width: 90vw;
                 height: 100%;
                 flex-flow: column nowrap;
                 align-items: center;
-                .fade {
-                    width: 400px;
-                    height: 300px;
+                .MuiPaper-root {
+                    width: 55%;
+                    height: auto;
                     overflow-y: scroll;
                 }
             }
@@ -52,6 +60,10 @@
                 max-width: 45%;
             }
 
+            .cw-information, .cw-experiences {
+                width: 90%;
+            }
+
             .cw-examples {
                 .examples-left {
                     width: 40vw;
@@ -69,10 +81,13 @@
 }
 
 %mobile-queries {
-    // mobile queries
     @media only screen and (max-width: 600px) {
+        // universal tag for hiding mobile-sensitive elements
+        .mobile-hide {
+            display: none;
+        }
+
         .app-navbar {
-            background-color: orange;
             .navbar-left {
                 width: 80vw;
             }

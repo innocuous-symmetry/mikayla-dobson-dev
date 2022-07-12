@@ -11,11 +11,11 @@ export default function Links() {
             <div className="links-container">
                 <Card>
                     <img src={github} alt="GitHub logo" />
-                    <a href="https://github.com/innocuous-symmetry">My Github</a>
+                    <a href="https://github.com/innocuous-symmetry">Github</a>
                 </Card>
                 <Card>
                     <img src={linkedin} alt="LinkedIn logo" />
-                    <a href="https://www.linkedin.com/in/mikayla-dobson/">My LinkedIn Profile</a>
+                    <a href="https://www.linkedin.com/in/mikayla-dobson/">LinkedIn Profile</a>
                 </Card>
             </div>
         </div>

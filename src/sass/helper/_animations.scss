@@ -12,32 +12,11 @@
     }
 }
 
-@keyframes hide-until-start {
-    from {
+@keyframes fade-in {
+  from {
     opacity: 0;
-    }
-    99% {
-    opacity: 0;
-    }
-    100% {
+  }
+  100% {
     opacity: 1;
-    }
-}
-
-@keyframes tech-scroll {
-    from {
-    left: -60rem;
-    }
-    100% {
-    left: 60rem;
-    }
-}
-
-@keyframes from-right {
-    from {
-    left: 60rem;
-    }
-    100% {
-    left: -60rem;
-    }
+  }
 }

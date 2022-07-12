@@ -1,4 +1,5 @@
 @import "../helper/variables";
+@import "../components/FadeAll";
 
 %page {
     display: flex;
@@ -6,5 +7,5 @@
     align-items: center;
     min-height: 100vh;
     width: 100vw;
-    background-color: #fff;
+    background-color: #fff;    
 }
