@@ -85,9 +85,9 @@ export default function Projects() {
 
     return (
         <div className="page projects-page">
-            <h1>Check out these projects from my portfolio!</h1>
+            <h1 className="projects-section-header">Check out these projects from my portfolio!</h1>
 
-            <section className={`filter-panel`}>
+            <section className="filter-panel">
                 <h2>Filter by:</h2>
                 <div className="filter-controls">
                     <input

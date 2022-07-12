@@ -1,4 +1,4 @@
-// tablet queries
+@import "./mixins";
 
 %tablet-queries {
     @media only screen and (max-width: 1050px) {
@@ -90,13 +90,83 @@
         .app-navbar {
             .navbar-left {
                 width: 80vw;
+                align-items: center;
+                .my-name {
+                    border-right: none;
+                }
             }
             .navbar-right {
                 width: 20vw;
+                align-items: center;
+                button {
+                    padding: 0;
+                    height: auto;
+                }
             }
             a, h2 {
                 font-weight: 600;
                 font-size: 1.25rem;
+            }
+        }
+
+        .welcome-page {
+            #header-card {
+                animation: none;
+                width: 75vw;
+            }
+            #welcome-info {
+                animation: none;
+            }
+        }
+
+        .about-me-page {
+            .about-me-section {
+                .am-section-mini {
+                    h1 {
+                        font-size: 1.35rem;
+                    }
+                    button {
+                        padding: 4px;
+                        height: 1.5rem;
+                    }
+                }
+                .about-gallery {
+                    .MuiPaper-root {
+                        width: 85%;
+                        height: auto;
+                        margin-bottom: 12px;
+                        .card-title {
+                            font-size: 1.2rem;
+                        }
+                        h3 {
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .projects-page {
+            .projects-section-header {
+                font-size: 1.35rem;
+                padding: 0 8px;
+            }
+            .filter-panel {
+                h2 {
+                    font-size: 1.15rem;
+                }
+                .filter-controls input, button {
+                    margin: 0 8px;
+                    border-radius: 8px;
+                }
+            }
+
+            // RESUME HERE
+            .project-cards .MuiPaper-root {
+                padding: 8px;
+                h1 {
+                    font-size: 1.5rem;
+                }
             }
         }
     }
