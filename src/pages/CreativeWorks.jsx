@@ -3,7 +3,6 @@ import { Card } from "@mui/material";
 
 import modulars from "../media/modulars.jpeg";
 import score from "../media/paper_score.jpeg";
-import guitar from "../media/with_guitar.png";
 import bandcamp from "../media/bandcamp-button-circle-line-black-128.png";
 import soundcloud from "../media/soundcloud-icon.png";
 

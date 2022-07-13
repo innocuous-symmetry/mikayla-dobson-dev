@@ -212,7 +212,19 @@
         }
 
         .creative-works-page {
-            
+            .cw-gallery {
+                flex-flow: column nowrap;
+                img {
+                    max-width: 65%;
+                    margin: 1rem 0;
+                }
+            }
+
+            .cw-information {
+                width: 95vw;
+                margin: 0;
+                text-align: left;
+            }
         }
     }
 }
