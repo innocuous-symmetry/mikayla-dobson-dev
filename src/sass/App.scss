@@ -6,6 +6,10 @@
 @import "components/Page";
 
 .App {
+  .mobile-show {
+    display: none;
+  }
+  
   main {
     text-align: center;
     position: relative;

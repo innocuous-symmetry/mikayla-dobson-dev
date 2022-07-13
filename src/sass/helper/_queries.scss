@@ -1,4 +1,5 @@
 @import "./mixins";
+@import "./variables";
 
 %tablet-queries {
     @media only screen and (max-width: 1050px) {
@@ -82,7 +83,7 @@
 
 %mobile-queries {
     @media only screen and (max-width: 600px) {
-        // universal tag for hiding mobile-sensitive elements
+        // universal tags for handling mobile-sensitive elements
         .mobile-hide {
             display: none;
         }
@@ -104,6 +105,7 @@
                 }
             }
             a, h2 {
+                color: inherit;
                 font-weight: 600;
                 font-size: 1.25rem;
             }
@@ -122,6 +124,12 @@
         .about-me-page {
             .about-me-section {
                 .am-section-mini {
+                    background-color: $darkLilac;
+                    position: sticky;
+                    top: 4.5rem;
+                    width: 88vw;
+                    z-index: 8;
+
                     h1 {
                         font-size: 1.35rem;
                     }
@@ -147,12 +155,17 @@
         }
 
         .projects-page {
-            .projects-section-header {
+            .mobile-show {
+                display: block;
                 font-size: 1.35rem;
-                padding: 0 8px;
             }
             .filter-panel {
+                position: sticky;
+                top: 5.5rem;
+                height: 4rem;
+                margin: 1.5rem;
                 h2 {
+                    margin-top: 0;
                     font-size: 1.15rem;
                 }
                 .filter-controls input, button {
@@ -161,13 +174,45 @@
                 }
             }
 
-            // RESUME HERE
-            .project-cards .MuiPaper-root {
-                padding: 8px;
-                h1 {
-                    font-size: 1.5rem;
+            .project-cards {
+                margin-top: 1.5rem;
+                .MuiPaper-root {
+                    padding: 8px;
+                    h1 {
+                        font-size: 1.5rem;
+                    }
                 }
             }
+        }
+
+        .technologies-page {
+            .tech-title {
+                width: 95vw;
+            }
+            .main-topic {
+                width: 85vw;
+                
+                h1 {
+                    font-size: 1.2rem;
+                }
+                button {
+                    padding: 6px;
+                }
+            }
+        }
+
+        .links-page {
+            h1 {
+                font-size: 1.35rem;
+                width: 85%;
+                margin-top: 1rem;
+            }
+            justify-content: flex-start;
+            height: 20rem;
+        }
+
+        .creative-works-page {
+            
         }
     }
 }

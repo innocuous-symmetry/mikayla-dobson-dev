@@ -3,19 +3,12 @@ import { projectsArray } from '../components/ProjectsArray';
 import { Divider } from '@mui/material';
 import '../sass/pages/Projects.scss';
 
-const defaultFilter = {
-    language: '',
-    searchTerm: '',
-    inProgress: false
-}
-
 export default function Projects() {
     const [results, setResults] = useState();
-    const [search, setSearch] = useState('');
+    const [search, setSearch] = useState(null);
     const [text, setText] = useState();
 
     const searchInput = useRef();
-    const languageFilter = useRef();
 
     useEffect(() => {
         let result = [];
@@ -78,14 +71,14 @@ export default function Projects() {
     }, [])
 
     const handleReset = () => {
-        setFilter(defaultFilter);
-        searchInput.current.value = '';
-        languageFilter.current.value = '';
+        setSearch(null);
+        searchInput.current.value = null;
     }
 
     return (
         <div className="page projects-page">
-            <h1 className="projects-section-header">Check out these projects from my portfolio!</h1>
+            <h1 className="projects-section-header mobile-hide">Check out these projects from my portfolio!</h1>
+            <h1 className="projects-section-header mobile-show">A selection of my projects:</h1>
 
             <section className="filter-panel">
                 <h2>Filter by:</h2>
