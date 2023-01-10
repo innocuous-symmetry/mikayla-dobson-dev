@@ -1,17 +1,3 @@
-@keyframes sideToSide {
-    from {
-      transform: rotate(-1deg);
-    }
-
-    50% {
-      transform: rotate(1deg);
-    }
-
-    to {
-      transform: rotate(-1deg);
-    }
-}
-
 @keyframes fade-in {
   from {
     opacity: 0;
