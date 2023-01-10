@@ -11,31 +11,29 @@ export default function Projects() {
     const searchInput = useRef();
 
     useEffect(() => {
-        let result = [];
+        let result = new Set();
 
         if (!search) {
-            setResults(projectsArray.map(each => each.jsx));
-            return;
+            setResults(projectsArray.map(card => card.jsx));
         }
 
-        if (search) {
-            let termLower = search.toLowerCase();
-
-            let i = 0;
-            while (i < text.length) {
-                for (let field of text[i].text) {
-                    if (field.includes(termLower)) {
-                        result.push(projectsArray[i]);
-                        break;
-                    } else {
-                        continue;
+        if (search && text) {
+            for (let entry of text) {
+                for (let field of entry.text) {
+                    if (field.toLowerCase().includes(search)) {
+                        result.add(projectsArray[entry.projectID]);
                     }
                 }
-                i++;
             }
         }
 
-        setResults(result.map(each => each.jsx));
+        if (search && result.size == 0) {
+            setResults(
+                <p>No results found for search "{search}"</p>
+            )
+        }
+
+        setResults(Array.from(result).map(card => card.jsx));
     }, [search]);
 
     useEffect(() => {
@@ -79,6 +77,7 @@ export default function Projects() {
         }
 
         setText(projectText);
+        setResults(projectsArray.map(card => card.jsx));
     }, [])
 
     const handleReset = () => {
@@ -96,7 +95,7 @@ export default function Projects() {
                 <div className="filter-controls">
                     <input
                         ref={searchInput} type="text"
-                        onChange={(e) => setSearch(e.target.value)}
+                        onChange={(e) => setSearch(e.target.value.toLowerCase())}
                         placeholder="Enter a search term">
                     </input>
                     <button onClick={handleReset}>Reset</button>
