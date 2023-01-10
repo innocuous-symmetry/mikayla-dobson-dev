@@ -6,7 +6,7 @@ import linkedin from "../media/LI-In-Bug.png";
 export default function Links() {
     return (
         <div className="page links-page">
-            <h1>Connect with me and get a closer look at my work!</h1>
+            <h1>Check out the links below to get a better look at my work!</h1>
 
             <div className="links-container">
                 <Card>

@@ -39,6 +39,26 @@ export default function Projects() {
     }, [search]);
 
     useEffect(() => {
+        function unpack(element) {
+            if (typeof element == "string") return element;
+
+            if (typeof element.props.children != "string") {
+                if (Array.isArray(element.props.children)) {
+                    let composite = "";
+
+                    for (let each of element.props.children) {
+                        composite += unpack(each);
+                    }
+
+                    return composite;
+                }
+
+                return unpack(element.props.children);
+            }
+            
+            return element.props.children;
+        }
+
         let projectText = [];
         let i = 0;
         while (i < projectsArray.length) {
@@ -47,26 +67,17 @@ export default function Projects() {
                 text: []
             }
 
+            let newText;
+
             for (let each of projectsArray[i].jsx.props.children) {
-                if (Array.isArray(each.props.children)) {
-                    for (let nested of each.props.children) {
-                        if (typeof nested === 'string') {
-                            const newText = nested.toLowerCase();
-                            project.text.push(newText);
-                        } else {
-                            const newText = nested.props.children.toLowerCase();
-                            project.text.push(newText);
-                        }
-                    }
-                } else {
-                    const newText = each.props.children.toLowerCase();
-                    project.text.push(newText);
-                }
+                newText = unpack(each);
+                project.text.push(newText);
             }
 
             projectText.push(project);
             i++;
         }
+
         setText(projectText);
     }, [])
 

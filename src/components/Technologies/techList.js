@@ -6,6 +6,8 @@ export const techList = [
                 topic: "JavaScript",
                 subtopics: [
                     "TypeScript",
+                    "React",
+                    "Redux",
                     "NodeJS",
                     "Express",
                     "ToneJS",
@@ -17,14 +19,19 @@ export const techList = [
                 subtopics: [
                     "Pandas",
                     "Beautiful Soup",
+                    "TensorFlow, Keras",
+                    "Flet"
                 ]
             },
             {
-                topic: "C#",
-                subtopics: [],
+                topic: "Java",
+                subtopics: [
+                    "Spring Boot",
+                    "Swing"
+                ]
             },
             {
-                topic: "Java",
+                topic: "PHP",
                 subtopics: []
             }
         ]
@@ -61,6 +68,8 @@ export const techList = [
                 topic: "SQL",
                 subtopics: [
                     "PostgreSQL",
+                    "MySQL",
+                    "Apache Web Server",
                     "MongoDB",
                     "Supabase"
                 ]
@@ -70,6 +79,8 @@ export const techList = [
                 subtopics: [
                     "Express.js",
                     "Express-Session",
+                    "PHP",
+                    "Spring Boot",
                     "API Documentation with Swagger",
                     "MVC Architecture"
                 ]

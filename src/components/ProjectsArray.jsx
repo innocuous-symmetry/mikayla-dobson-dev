@@ -3,16 +3,16 @@ import { v4 } from 'uuid';
 
 export const projectsArray = [
     {
-        name: "Mikayla's E-Commerce Store",
+        name: "Express Spice Shop",
         languages: ["TypeScript", "React", "PERN", "REST_API"],
         inProgress: true,
         jsx: (
             <Card key={v4()}>
-                <h1>Mikayla's E-Commerce Store</h1>
-                <p>A fully-featured e-commerce platform</p>
+                <h1><a target="_blank" rel="noreferrer" href="https://github.com/innocuous-symmetry/e-commerce">Express Spice Shop</a></h1>
+                <p>A sample, fully-featured e-commerce platform</p>
                 <p>Built in React with TypeScript, Node/Express, and PostgreSQL</p>
-                <p>Payment processing supported through Stripe</p>
-                <p>REST API fully documented in Swagger</p>
+                <p>Payment processing supported through Stripe (in progress)</p>
+                <p>API documentation with Swagger</p>
                 <p>IN PROGRESS</p>
             </Card>
         )
@@ -24,7 +24,7 @@ export const projectsArray = [
         deployed: true,
         jsx: (
             <Card key={v4()}>
-                <h1>Procedural Drones</h1>
+                <h1>Procedural Music Generation</h1>
                 <p>An experimental space for building out procedural music generation using vanilla JavaScript</p>
                 <p>Uses Tone.js to interact with the Web Audio API</p>
                 <p>Features a plain HTML/CSS front end to interact with the program</p>
@@ -69,19 +69,6 @@ export const projectsArray = [
         )
     },
     {
-        name: "Musical Counterpoint Bot",
-        languages: ["HTML/CSS", "JavaScript"],
-        inProgress: true,
-        jsx: (
-            <Card key={v4()}>
-                <h1>Musical Counterpoint Bot</h1>
-                <p>A web-based program with functionality to evaluate sample solutions of problems in 
-                    species-based counterpoint, as detailed by Johann Fux in <em>Gradus ad Parnassum.</em></p>
-                <p>In progress. Using vanilla HTML/CSS/JS.</p>
-            </Card>
-        )
-    },
-    {
         name: "Password Game",
         languages: ["React", "MongoDB", "MERN", "React", "REST_API", "Socket.io", "Sass", "MaterialUI"],
         inProgress: true,
@@ -95,12 +82,12 @@ export const projectsArray = [
         )
     },
     {
-        name: "Splinter",
-        languages: ["React", "PERN", "Socket.io"],
+        name: "Splendor Clone",
+        languages: ["React", "TypeScript"],
         inProgress: true,
         jsx: (
             <Card key={v4()}>
-                <h1>Splinter</h1>
+                <h1><a target="_blank" rel="noreferrer" href="https://github.com/innocuous-symmetry/splendor-clone">Splendor</a> -- a clone of the board game by Marc André</h1>
                 <p>A clone of a popular card-based resource gathering game</p>
                 <p>Local multiplayer, with plans to build out online multiplayer and solo vs. CPU</p>
                 <p>In progress. Using React, Node/Express, and PostgreSQL.</p>
@@ -108,15 +95,29 @@ export const projectsArray = [
         )
     },
     {
-        name: "Carenest",
-        languages: ["React"],
-        inProgress: false,
+        name: "Recipin",
+        languages: ["React", "TypeScript", "PERN"],
+        inProgress: true,
         jsx: (
             <Card key={v4()}>
-                <h1>Carenest</h1>
-                <p>Designed in collaboration with Faith Magras, Elvis Hernandez, and Daytreon Dean 
-                    as a submission for #HACKTN with <a href="https://www.hackathonsinternational.com/">Hackathons International</a> in March 2022.</p>
-                <p>Produced using React. View the repo <a target="_blank" rel="noreferrer" href="https://github.com/Team-Carenest/carenest">here!</a></p>
+                <h1><a target="_blank" rel="noreferrer" href="https://github.com/innocuous-symmetry/recipe-manager">Recipin</a> -- a home recipe management solution</h1>
+                <p>Manage a collection of your own commonly-used recipes</p>
+                <p>Features a full user-auth workflow and enables the sharing of recipes between users</p>
+                <p>Allows the user to build shopping lists from collections of their recipes</p>
+                <p>Built using full end-to-end TypeScript for the React front end and the Express server</p>
+            </Card>
+        )
+    },
+    {
+        name: "Photosorting with VGG16",
+        languages: ["Python", "TensorFlow", "PostgreSQL"],
+        inProgress: true,
+        jsx: (
+            <Card key={v4()}>
+                <h1>Photosorting with VGG16</h1>
+                <p>A tool written in Python for sorting photos based on the output of VGG16, the pre-trained image recognition model included with TensorFlow.</p>
+                <p>The user may also integrate the results of their photo sort into a PostgreSQL database.</p>
+                <p>The repository may be found <a target="_blank" rel="noreferrer" href="https://github.com/innocuous-symmetry/vgg16-image-recognition">here!</a></p>
             </Card>
         )
     },

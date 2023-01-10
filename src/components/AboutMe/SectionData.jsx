@@ -13,9 +13,14 @@ export const WhatIDo = {
             </Card>
 
             <Card>
-                <h2 className="card-title">Web Design Consulting</h2>
-                <p>I consult on small teams at <a target="_blank" rel="noreferrer" href="https://www.metazu.studio/">Metazu Studio</a>, a Nashville-based startup connecting clients with services in video production, AR/VR, social media, photography, and web design.</p>
-                <p>I have worked on projects focused on full stack web engineering, real time communications, and designing beautiful user experiences.</p>
+                <h2 className="card-title">Collaborative software engineering</h2>
+                <p>I have consulted on small teams with:</p>
+                <div>
+                    <p><a target="_blank" rel="noreferrer" href="https://dization.com">Dization</a>, a Pittsburgh-based company developing an enterprise resource planning solution for small businesses</p>
+                    <p><a target="_blank" rel="noreferrer" href="https://www.metazu.studio/">Metazu Studio</a>, a Nashville-based startup connecting clients with services in video production, AR/VR, social media, photography, and web design.</p>
+                </div>
+
+                <p> My work on these projects deals with managing the complexities of full-stack web engineering, as well as delivering beautiful user experiences to end customers.</p>
             </Card>
 
             <Card>
@@ -59,7 +64,7 @@ export const Education = {
 }
 
 const MetazuConcepts = [
-    "UI/UX design", "Pair Programming", "REST APIs", "Database management", "Consulting with Clients"
+    "Enterprise Resource Planning", "UI/UX design", "Pair Programming", "REST APIs", "Database management", "Consulting with Clients"
 ]
 
 const MusicExperiences = [
@@ -104,13 +109,5 @@ export const Employment = {
                 </p>
             </Card>
         </div>
-    )
-}
-
-export const Community = {
-    title: "Community",
-    jsx: (
-        <>
-        </>
     )
 }
