@@ -64,7 +64,11 @@ export const Education = {
 }
 
 const MetazuConcepts = [
-    "Enterprise Resource Planning", "UI/UX design", "Pair Programming", "REST APIs", "Database management", "Consulting with Clients"
+    "UI/UX design", "Pair Programming", "REST APIs", "Database management", "Consulting with clients"
+]
+
+const DizationConcepts = [
+    "Enterprise Resource Planning", "AWS", "System Design", "UI/UX Design", "Database management"
 ]
 
 const MusicExperiences = [
@@ -76,9 +80,18 @@ export const Employment = {
     jsx: (
         <div className="about-gallery">
             <Card>
+                <h2 className="card-title">Full Stack Engineer, intern</h2>
+                <h3>Dization, Inc | Pittsburgh, PA (remote) <br/>Sept 2022 - present</h3>
+                <p><strong>Relevant Duties:</strong> contributing to the development of a full-stack enterprise resource planning application built using 
+                the LAMP stack hosted on AWS.</p>
+                <div className="chip-section">
+                    { DizationConcepts.map(each => <Chip key={v4()} label={each} /> )}
+                </div>
+            </Card>
+            <Card>
                 <h2 className="card-title">Web Design Consultant</h2>
                 <h3>Metazu Studio | Nashville, TN <br/>Mar 2022 - present</h3>
-                <p><strong>Relevant Duties:</strong> collaboration on the design and production of responsive web apps, including:</p>
+                <p><strong>Relevant Duties:</strong> collaboration on the design and production of responsive web apps, using skills including:</p>
                 <div className="chip-section">
                     { MetazuConcepts.map(each => <Chip key={v4()} label={each} /> ) }
                 </div>

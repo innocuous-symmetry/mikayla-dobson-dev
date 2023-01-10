@@ -15,6 +15,7 @@ export default function Projects() {
 
         if (!search) {
             setResults(projectsArray.map(card => card.jsx));
+            return;
         }
 
         if (search && text) {
@@ -31,9 +32,9 @@ export default function Projects() {
             setResults(
                 <p>No results found for search "{search}"</p>
             )
+        } else {
+            setResults(Array.from(result).map(card => card.jsx));
         }
-
-        setResults(Array.from(result).map(card => card.jsx));
     }, [search]);
 
     useEffect(() => {

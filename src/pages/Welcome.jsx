@@ -15,8 +15,8 @@ export default function Welcome() {
 
             <Card id="welcome-info">
                 <p>
-                I am a junior web developer based in Nashville, Tennessee. I build responsive, performant 
-                web applications, seeking out simple problems to complex solutions, and emphasizing 
+                I am a software engineer based in Nashville, Tennessee. I build performant 
+                web applications, seek out simple solutions to complex problems, and emphasize 
                 elegance of design.
                 </p>
                 <p>

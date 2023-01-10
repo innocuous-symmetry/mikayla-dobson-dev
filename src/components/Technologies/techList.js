@@ -8,6 +8,7 @@ export const techList = [
                     "TypeScript",
                     "React",
                     "Redux",
+                    "jQuery",
                     "NodeJS",
                     "Express",
                     "ToneJS",
@@ -20,7 +21,7 @@ export const techList = [
                     "Pandas",
                     "Beautiful Soup",
                     "TensorFlow, Keras",
-                    "Flet"
+                    "Flutter with Flet"
                 ]
             },
             {
@@ -54,6 +55,7 @@ export const techList = [
                 subtopics: [
                     "CSS",
                     "Sass",
+                    "Bootstrap",
                     "Material UI",
                     "Responsive Design",
                 ]
@@ -79,8 +81,8 @@ export const techList = [
                 subtopics: [
                     "Express.js",
                     "Express-Session",
-                    "PHP",
-                    "Spring Boot",
+                    "PHP / Apache / MySQL",
+                    "Java / Spring Boot",
                     "API Documentation with Swagger",
                     "MVC Architecture"
                 ]

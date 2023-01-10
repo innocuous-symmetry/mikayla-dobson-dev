@@ -202,6 +202,12 @@
         }
 
         .links-page {
+            margin-top: 1rem;
+            
+            a {
+                text-decoration: none;
+            }
+
             h1 {
                 font-size: 1.35rem;
                 width: 85%;
