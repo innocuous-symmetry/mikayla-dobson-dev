@@ -1,9 +1,0 @@
-@import "../helper/animations";
-
-@mixin step-entry($len) {
-    @for $i from 1 through $len {
-        &:nth-child(#{$i}) {
-            animation: 0.5s fade-in #{$i * 0.6 - 0.6}s linear forwards;
-        }
-    }
-}
