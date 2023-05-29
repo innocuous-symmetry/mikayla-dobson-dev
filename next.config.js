@@ -1,4 +1,26 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {}
+// more about configuring mdx
+// https://nextjs.org/docs/pages/building-your-application/configuring/mdx
 
-module.exports = nextConfig
+const withMDX = require('@next/mdx')({
+    extension: /\.mdx?$/,
+    options: {
+      // If you use remark-gfm, you'll need to use next.config.mjs
+      // as the package is ESM only
+      // https://github.com/remarkjs/remark-gfm#install
+      remarkPlugins: [require("remark-prism")],
+      rehypePlugins: [],
+      // If you use `MDXProvider`, uncomment the following line.
+      // providerImportSource: "@mdx-js/react",
+    },
+});
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+    reactStrictMode: true,
+    experimental: {
+      appDir: true,
+    }
+}
+
+module.exports = withMDX(nextConfig);
