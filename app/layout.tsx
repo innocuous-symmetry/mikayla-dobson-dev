@@ -1,3 +1,5 @@
+'use client'
+
 import Navbar from '@/components/Navbar'
 import { MDXProvider } from '@mdx-js/react'
 import { Inter } from 'next/font/google'
