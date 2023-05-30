@@ -1,6 +1,7 @@
 'use client'
 
 import Navbar from '@/components/Navbar'
+import SiteTree from '@/components/SiteTree'
 import { MDXProvider } from '@mdx-js/react'
 import { Inter } from 'next/font/google'
 import './globals.css'
@@ -23,6 +24,7 @@ export default function RootLayout({
         <body className={inter.className}>
           <>
           <Navbar />
+          <SiteTree />
           {children}
           </>
         </body>
