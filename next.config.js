@@ -9,8 +9,7 @@ const withMDX = require('@next/mdx')({
       // https://github.com/remarkjs/remark-gfm#install
       remarkPlugins: [require("remark-prism")],
       rehypePlugins: [],
-      // If you use `MDXProvider`, uncomment the following line.
-      // providerImportSource: "@mdx-js/react",
+      providerImportSource: "@mdx-js/react",
     },
 });
 
@@ -18,9 +17,6 @@ const withMDX = require('@next/mdx')({
 const nextConfig = {
     pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
     reactStrictMode: true,
-    experimental: {
-      appDir: true,
-    }
 }
 
 module.exports = withMDX(nextConfig);
