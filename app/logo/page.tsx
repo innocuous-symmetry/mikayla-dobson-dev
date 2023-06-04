@@ -30,7 +30,7 @@ export default function LogoPage() {
         setCircleColors({ firstColor, secondColor, thirdColor });
     }
 
-    useEffect(() => handleHover, []);
+    useEffect(handleHover, []);
 
     useEffect(() => {
         if (LOOPING_ENABLED_ON_SECOND_LOGO) {

@@ -4,11 +4,13 @@ import Head from 'next/head'
 import Navbar from '@/components/Navbar'
 import SiteTree from '@/components/SiteTree'
 import { MDXProvider } from '@mdx-js/react'
-import { Inter } from 'next/font/google'
+import { Inter, Besley, Cabin } from 'next/font/google'
 import components from '@/components/mdx'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+export const inter = Inter({ subsets: ['latin'] })
+export const besley = Besley({ subsets: ['latin'] })
+export const cabin = Cabin({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Mikayla Dobson | Software Engineer',

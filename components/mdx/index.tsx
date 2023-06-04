@@ -1,4 +1,5 @@
 import { v4 } from "uuid"
+import { cabin } from "@/app/layout";
 
 type ElementType<Key extends keyof JSX.IntrinsicElements> = React.FC<JSX.IntrinsicElements[Key]>
 type FormattedTags = {
@@ -6,7 +7,7 @@ type FormattedTags = {
 }
 
 const H1TAG: ElementType<"h1"> = ({ children }) => { return (
-    <h1 key={v4()} className="text-4xl text-red-500">{children}</h1>
+    <h1 key={v4()} className={`text-4xl text-red-500 ${cabin.className} tracking-wide`}>{children}</h1>
 )}
 
 const H2Tag: ElementType<"h2"> = ({ children }) => (
