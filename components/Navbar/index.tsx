@@ -78,15 +78,15 @@ export default function Navbar() {
                 <InlineLogo customHookInstance={navbarColorShift} />
             </Link>
 
-            <Link href="/about" onMouseOver={() => mouseOver('about')} onMouseOut={() => mouseOut('about')} className={`${colors.firstColor} rounded-lg transition-colors ease-out duration-${hoverState.about ? '[5000ms]' : '0'}`}>
+            <Link href="/about" onMouseOver={() => mouseOver('about')} onMouseOut={() => mouseOut('about')} className={`${colors.firstColor} rounded-lg transition-colors ease-quick-start duration-${hoverState.about ? '[5000ms]' : '0'}`}>
                 <p className='text-lg text-white text-opacity-80 hover:text-opacity-100 uppercase border-white border-2 p-2 rounded-lg border-opacity-50 hover:border-opacity-75'>About</p>
             </Link>
 
-            <Link href="/projects" onMouseOver={() => mouseOver("projects")} onMouseOut={() => mouseOut('projects')} className={`${colors.secondColor} rounded-lg transition-colors ease-out duration-${hoverState.projects ? '[5000ms]' : '0'}`}>
+            <Link href="/projects" onMouseOver={() => mouseOver("projects")} onMouseOut={() => mouseOut('projects')} className={`${colors.secondColor} rounded-lg transition-colors ease-quick-start duration-${hoverState.projects ? '[5000ms]' : '0'}`}>
                 <p className='text-lg text-white text-opacity-80 hover:text-opacity-100 hover:border-opacity-75 uppercase border-white border-2 p-2 rounded-lg border-opacity-50'>Projects</p>
             </Link>
 
-            <Link href="/contact" onMouseOver={() => mouseOver('projects')} onMouseOut={() => mouseOut('projects')} className={`${colors.thirdColor} rounded-lg transition-colors ease-out duration-${hoverState.contact ? '[5000ms]' : '0'}`}>
+            <Link href="/contact" onMouseOver={() => mouseOver('contact')} onMouseOut={() => mouseOut('contact')} className={`${colors.thirdColor} rounded-lg transition-colors ease-quick-start duration-${hoverState.contact ? '[5000ms]' : '0'}`}>
                 <p className='text-lg text-white text-opacity-80 hover:text-opacity-100 uppercase border-white border-2 p-2 rounded-lg border-opacity-50 hover:border-opacity-75'>Contact</p>
             </Link>
         </div>

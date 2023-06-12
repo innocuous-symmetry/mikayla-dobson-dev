@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      transitionTimingFunction: {
+        'quick-start': 'cubic-bezier(.17,.67,0,.89)',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -16,8 +19,13 @@ module.exports = {
         'logo-throw-left': 'logoThrowLeft 1s ease forwards',
         'logo-throw-right': 'logoThrowRight 1s ease forwards',
         'logo-throw-down': 'logoThrowDown 1s ease forwards',
+        'fade-in': 'fadeIn 1s ease forwards',
       },
       keyframes: {
+        fadeIn: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 }
+        },
         logoThrowLeft: {
           '0%': { transform: 'translateX(0)'},
           '100%': { transform: 'translateX(-56px)' }
