@@ -7,6 +7,9 @@ import { MDXProvider } from '@mdx-js/react'
 import { Inter, Besley, Cabin } from 'next/font/google'
 import components from '@/components/mdx'
 import './globals.css'
+import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
+import { IconContext } from 'react-icons'
 
 export const inter = Inter({ subsets: ['latin'] })
 export const besley = Besley({ subsets: ['latin'] })
@@ -18,6 +21,20 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const [bg, setBg] = useState('bg-slate-900');
+
+  useEffect(() => {
+    switch (pathname) {
+      case '/':
+        setBg('bg-slate-900');
+        break;
+      default:
+        setBg('bg-slate-900');
+        break;
+    }
+  }, [pathname])
+
   return (
     <html lang="en">
       <Head>
@@ -29,9 +46,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <Navbar />
         <SiteTree />
-        <MDXProvider components={components}>
-          {children}
-        </MDXProvider>
+        <IconContext.Provider value={{}}>
+          <MDXProvider components={components}>
+            <main className={`${bg} min-h-screen`}>
+              {children}
+            </main>
+          </MDXProvider>
+        </IconContext.Provider>
       </body>
     </html>
   )
