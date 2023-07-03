@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function AboutPage() {
     return (
-        <div>
+        <div className="flex flex-col min-h-[50vh] bg-gradient-to-b from-black to-purple-950">
             <Link href="/about/me">About me</Link>
             <Link href="/about/resume">My resume</Link>
             <Link href="/about/skills">Skills</Link>

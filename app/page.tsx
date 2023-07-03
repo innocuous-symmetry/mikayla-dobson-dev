@@ -12,7 +12,6 @@ export default function Home() {
 
   return (
     <>
-      <div aria-description="spacer" className="h-[6rem] w-full" />
       <div id="hero" className="bg-gradient-to-b from-black to-slate-900 p-4 flex flex-col min-h-[50vh]">
         <span className={"px-4 mb-2 mt-4 bg-clip-text text-transparent uppercase text-3xl sm:text-6xl font-extrabold bg-opacity-100 animate-text-gradient bg-gradient-to-r " + `from-${firstColor.split('-').slice(1).join('-')} to-${secondColor.split('-').slice(1).join('-')}`}>
           Mikayla Dobson

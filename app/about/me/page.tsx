@@ -1,5 +1,7 @@
 'use client';
 import { useState } from "react";
+import Software from "./software.mdx";
+import CompanyShowcase from "@/components/About/CompanyShowcase";
 
 export default function AboutMe() {
     const [selected, setSelected] = useState<'musician' | 'developer'>();
@@ -15,11 +17,12 @@ export default function AboutMe() {
 
             {selected === 'developer' && (
                 <div>
-                    <h2>Software Engineer</h2>
                     <p>
-                        I am a software engineer with a passion for creating beautiful, functional, and accessible web applications.
-                        I have experience with React, TypeScript, Node.js, and more.
+                        I have been writing software for about three years, and have produced valuable work for several
+                        companies working in a variety of paradigms.
                     </p>
+
+                    <p>Here are some traits that my supervisors have consistently praised:</p>
                 </div>
             )}
 

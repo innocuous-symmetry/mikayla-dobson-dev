@@ -1,15 +1,16 @@
 'use client'
 
+import './globals.css'
+
 import Head from 'next/head'
 import Navbar from '@/components/Navbar'
 import SiteTree from '@/components/SiteTree'
+import components from '@/components/mdx'
 import { MDXProvider } from '@mdx-js/react'
 import { Inter, Besley, Cabin } from 'next/font/google'
-import components from '@/components/mdx'
-import './globals.css'
-import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { IconContext } from 'react-icons'
+import { useEffect, useState } from 'react'
 
 export const inter = Inter({ subsets: ['latin'] })
 export const besley = Besley({ subsets: ['latin'] })
@@ -29,6 +30,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     switch (pathname) {
       case '/':
         setBg('bg-slate-900');
+        break;
+      case '/about':
+      case '/about/me':
+        setBg('bg-purple-950');
         break;
       default:
         setBg('bg-slate-900');
@@ -60,6 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <IconContext.Provider value={{}}>
           <MDXProvider components={components}>
             <main className={`${bg} min-h-screen`}>
+              <div id="navbar-spacer" className="h-[6rem] w-full" />
               {children}
             </main>
           </MDXProvider>
