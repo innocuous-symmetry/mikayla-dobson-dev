@@ -5,6 +5,14 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  safelist: [
+    {
+      pattern: /from-.*/,
+    },
+    {
+      pattern: /to-.*/,
+    }
+  ],
   theme: {
     extend: {
       transitionTimingFunction: {
@@ -20,6 +28,7 @@ module.exports = {
         'logo-throw-right': 'logoThrowRight 1s ease forwards',
         'logo-throw-down': 'logoThrowDown 1s ease forwards',
         'fade-in': 'fadeIn 1s ease forwards',
+        'text-gradient': 'textGradient 15s ease infinite'
       },
       keyframes: {
         fadeIn: {
@@ -38,6 +47,13 @@ module.exports = {
           '0%': { transform: 'translateY(0)'},
           '100%': { transform: 'translateY(80px)' }
         },
+
+        textGradient: {
+          '0%': { opacity: 0},
+          '12%': { opacity: 100 },
+          '88%': { opacity: 98 },
+          '100%': { opacity: 0 }
+        }
       }
     },
   },

@@ -3,29 +3,12 @@ import Link from 'next/link';
 export default function AboutPage() {
     return (
         <div>
-            <Link href="/about/me">
-                <p>About me</p>
-            </Link>
-
-            <Link href="/about/resume">
-                <p>My resume</p>
-            </Link>
-
-            <Link href="/about/skills">
-                <p>Skills</p>
-            </Link>
-
-            <Link href="/about/education">
-                <p>Education</p>
-            </Link>
-
-            <Link href="/about/experience">
-                <p>Experience</p>
-            </Link>
-
-            <Link href="/about/music">
-                <p>Music</p>
-            </Link>
+            <Link href="/about/me">About me</Link>
+            <Link href="/about/resume">My resume</Link>
+            <Link href="/about/skills">Skills</Link>
+            <Link href="/about/education">Education</Link>
+            <Link href="/about/experience">Experience</Link>
+            <Link href="/about/music">Music</Link>
         </div>
     )
 }

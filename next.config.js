@@ -18,8 +18,8 @@ const nextConfig = {
     pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
     reactStrictMode: true,
     experimental: {
-      mdxRs: true,
-      serverActions: true,
+      // mdxRs: true,
+      // serverActions: true,
     }
 }
 

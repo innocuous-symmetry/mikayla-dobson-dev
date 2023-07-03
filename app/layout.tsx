@@ -23,6 +23,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [bg, setBg] = useState('bg-slate-900');
+  const [pageIsScrolled, setPageIsScrolled] = useState(false);
 
   useEffect(() => {
     switch (pathname) {
@@ -35,6 +36,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     }
   }, [pathname])
 
+  useEffect(() => {
+    document.addEventListener('scroll', () => {
+      if (window.scrollY > 0) {
+        setPageIsScrolled(true);
+      } else {
+        setPageIsScrolled(false);
+      }
+    })
+  }, [])
+
   return (
     <html lang="en">
       <Head>
@@ -44,7 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body className={inter.className}>
-        <Navbar />
+        <Navbar pageIsScrolled={pageIsScrolled} />
         <SiteTree />
         <IconContext.Provider value={{}}>
           <MDXProvider components={components}>
