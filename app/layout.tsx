@@ -29,12 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   useEffect(() => {
     switch (pathname) {
       case '/':
-        setBg('bg-slate-900');
-        break;
       case '/about':
-      case '/about/me':
-        setBg('bg-purple-950');
-        break;
       default:
         setBg('bg-slate-900');
         break;

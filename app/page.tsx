@@ -19,7 +19,7 @@ export default function Home() {
         <h2 className={"px-4 uppercase text-2xl text-transparent font-bold bg-opacity-100 animate-text-gradient bg-clip-text bg-gradient-to-r " + `from-${secondColor.split('-').slice(1).join('-')} to-${thirdColor.split('-').slice(1).join('-')}`}>Software Engineer</h2>
 
         <div id="hero-mask" className="bg-gradient-to-b from-black to-slate-900 bg-opacity-10 p-4 flex flex-col min-h-[50vh]">
-          <p className="mt-4 text-sky-300 tracking-wide">Software design with style, ingenuity, and artistry.</p>
+          <p className="mt-4 text-sky-300 tracking-wide">Pragmatic software design with style and artistry.</p>
         </div>
 
         {/* <div className="w-full h-[10vh] object-scale-down bg-no-repeat">
