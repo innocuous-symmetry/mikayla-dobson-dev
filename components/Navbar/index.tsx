@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { InlineLogo, useColorShift } from '../logo'
 import { useEffect, useState } from 'react';
 import { UseColorShiftReturnType } from '../logo/useColorShift';
-import { FaTrash } from "react-icons/fa";
 import { RxActivityLog } from "react-icons/rx";
 
 interface HoverState {
@@ -102,7 +101,7 @@ export default function Navbar({ pageIsScrolled = false }) {
                 </button>
             </div>
         </div>
-        <div onMouseLeave={() => setMobileMenuOpen(false)} className={`flex flex-col rounded-bl-lg justify-end md:hidden fixed top-24 w-[25vw] text-right place-self-end bg-[#131313] ${mobileMenuOpen ? 'translate-x-[75vw]' : 'translate-x-[100vw]'} transition-all duration-500`}>
+        <div onMouseLeave={() => setMobileMenuOpen(false)} className={`flex flex-col z-50 rounded-bl-lg justify-end md:hidden fixed top-24 w-[25vw] text-right place-self-end bg-[#131313] ${mobileMenuOpen ? 'translate-x-[75vw]' : 'translate-x-[100vw]'} transition-all duration-500`}>
             {/* <div className="bg-black h-48" /> */}
             <Link onClick={() => setMobileMenuOpen(false)} passHref href="/" className="w-full">
                 <p className='text-lg text-right text-white text-opacity-80 hover:text-opacity-100 uppercase p-2 border-opacity-50 hover:border-opacity-75'>Home</p>

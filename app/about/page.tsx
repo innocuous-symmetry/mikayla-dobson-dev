@@ -13,8 +13,8 @@ export default function Resume() {
     const [projectsVisible, setProjectsVisible] = useState(true);
 
     return (
-        <div className="flex flex-col items-center p-4">
-            <section className="w-full sticky top-24 bg-slate-900 pb-4">
+        <div className="min-h-screen bg-gradient-to-b from-black to-slate-950 bg-fixed flex flex-col items-center p-4 z-10">
+            <section className="w-full bg-black bg-opacity-80 pb-4">
                 <h1 className="uppercase text-4xl text-rose-300 tracking-wide leading-relaxed font-light">Mikayla Dobson</h1>
                 <h2 className="text-2xl tracking-wide font-light">Software Engineer | Nashville, TN</h2>
 
@@ -25,36 +25,36 @@ export default function Resume() {
                 </div>
 
                 <div className="flex pt-2">
-                    <div className="flex items-center"><FaGithub className="mr-2" /> <Link className="mr-8 hover:text-sky-300 active:text-white" href="https://github.com/innocuous-symmetry">innocuous-symmetry</Link></div>
-                    <div className="flex items-center"><FaLinkedin className="mr-2" /> <Link className="mr-8 hover:text-sky-300 active:text-white" href="https://linkedin.com/in/mikayla-dobson">mikayla-dobson</Link></div>
+                    <Link className="flex items-center mr-8 hover:text-sky-300 active:text-white" href="https://github.com/innocuous-symmetry"><FaGithub className="mr-2" />innocuous-symmetry</Link>
+                    <Link className="flex items-center mr-8 hover:text-sky-300 active:text-white" href="https://linkedin.com/in/mikayla-dobson"><FaLinkedin className="mr-2" />mikayla-dobson</Link>
                 </div>
             </section>
 
             <section className="place-self-start mt-8 w-full">
-                <button onClick={() => setSkillsVisible(!skillsVisible)} className="flex items-center text-rose-300 uppercase tracking-wide list-none">
+                <button onClick={() => setSkillsVisible(!skillsVisible)} className="sticky top-[5.5rem] w-full bg-black flex items-center text-rose-300 uppercase tracking-wide list-none">
                     <span className="font-light text-3xl leading-relaxed">Skills</span>
                     <RxChevronDown className={`ml-2 transition ${skillsVisible ? "rotate-180" : "rotate-0"}`} />
                 </button>
-                { skillsVisible ? <Skills visible={skillsVisible} /> : null }
+                { skillsVisible ? <Skills /> : null }
             </section>
 
             <section className="place-self-start mt-8 w-full">
-                <button onClick={() => setExperienceVisible(!experienceVisible)} className="flex items-center text-rose-300 uppercase tracking-wide list-none">
+                <button onClick={() => setExperienceVisible(!experienceVisible)} className="sticky top-[5.5rem] w-full bg-black flex items-center text-rose-300 uppercase tracking-wide list-none">
                     <span className="font-light text-3xl leading-relaxed">Experience</span>
                     <RxChevronDown className={`ml-2 transition ${experienceVisible ? "rotate-180" : "rotate-0"}`} />
                 </button>
-                { experienceVisible ? <Experience visible={experienceVisible} /> : null }
+                { experienceVisible ? <Experience /> : null }
             </section>
 
             <section className="place-self-start mt-8 w-full">
-                <button onClick={() => setEducationVisible(!educationVisible)} className="flex items-center text-rose-300 uppercase tracking-wide list-none">
+                <button onClick={() => setEducationVisible(!educationVisible)} className="sticky top-[5.5rem] w-full bg-black flex items-center text-rose-300 uppercase tracking-wide list-none">
                     <h2 className="font-light text-3xl leading-relaxed">Education</h2>
                     <RxChevronDown className={`ml-2 transition ${educationVisible ? "rotate-0" : "rotate-180"}`} />
                 </button>
 
                 {
                     educationVisible ? (
-                        <article className={(educationVisible ? "h-auto my-4 opacity-100" : "h-0 opacity-0 my-0") + " transition duration-500 bg-slate-800 shadow shadow-black p-3 rounded-lg"}>
+                        <article className={(educationVisible ? "h-auto my-4 opacity-100" : "h-0 opacity-0 my-0") + " transition duration-500 bg-slate-800 bg-opacity-40 shadow shadow-black p-3 rounded-lg"}>
                             <h3 className="uppercase text-2xl text-rose-600">Southern Methodist University</h3>
                             <p className="font-light italic text-rose-300">Dallas, TX - B.A. Music</p>
                             <div className="h-[1px] w-full my-3 bg-rose-300" />
@@ -66,11 +66,11 @@ export default function Resume() {
             </section>
 
             <section className="place-self-start mt-8 w-full">
-                <button onClick={() => setProjectsVisible(!projectsVisible)} className="flex items-center text-rose-300 uppercase tracking-wide list-none">
+                <button onClick={() => setProjectsVisible(!projectsVisible)} className="sticky top-[5.5rem] w-full flex items-center text-rose-300 uppercase tracking-wide list-none">
                     <h2 className="font-light text-3xl leading-relaxed">Projects</h2>
                     <RxChevronDown className={`ml-2 transition ${projectsVisible ? "rotate-180" : "rotate-0"}`} />
                 </button>
-                { projectsVisible ? <Projects visible={projectsVisible} /> : null }
+                { projectsVisible ? <Projects /> : null }
             </section>
         </div>
     )

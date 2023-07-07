@@ -1,9 +1,9 @@
 import { RxChevronDown } from "react-icons/rx";
 import Link from "next/link";
 
-const Skills = ({ visible }: { visible: boolean }) => (
-    <section className={`w-full transition duration-500 ${visible ? "h-auto opacity-100" : "h-0 opacity-0"}`}>
-        <div className="bg-slate-800 shadow shadow-black p-3 my-4 rounded-lg">
+const Skills = () => (
+    <section className="w-full">
+        <div className="bg-slate-800 bg-opacity-40 shadow shadow-black p-3 my-4 rounded-lg">
             <h3 className="uppercase text-2xl text-rose-600">Strong:</h3>
             <article className="mt-2">
                 <details className="group">
@@ -40,7 +40,7 @@ const Skills = ({ visible }: { visible: boolean }) => (
             </article>
         </div>
 
-        <div className="bg-slate-800 shadow shadow-black p-3 my-4 rounded-lg">
+        <div className="bg-slate-800 bg-opacity-40 shadow shadow-black p-3 my-4 rounded-lg">
             <h3 className="uppercase text-2xl text-rose-600">Experienced:</h3>
             <article className="mt-2">
                 <details className="group">
@@ -49,9 +49,9 @@ const Skills = ({ visible }: { visible: boolean }) => (
                         <RxChevronDown className="transition group-open:rotate-180" />
                     </summary>
                     <div className="opacity-0 group-open:opacity-100 transition-opacity duration-500 flex flex-wrap">
+                        <Link target="_blank" referrerPolicy="no-referrer" href="https://github.com/innocuous-symmetry/picosynth" className="py-0.5 px-2 bg-rose-900 rounded-xl m-0.5 hover:bg-rose-500 active:bg-rose-900">Micropython</Link>
                         <p className="py-0.5 px-2 bg-rose-900 rounded-xl m-0.5">Flask</p>
                         <p className="py-0.5 px-2 bg-rose-900 rounded-xl m-0.5">Flet</p>
-                        <Link target="_blank" referrerPolicy="no-referrer" href="https://github.com/innocuous-symmetry/picosynth" className="py-0.5 px-2 bg-rose-900 rounded-xl m-0.5 hover:bg-rose-500 active:bg-rose-900">Micropython</Link>
                     </div>
                 </details>
             </article>
@@ -63,10 +63,10 @@ const Skills = ({ visible }: { visible: boolean }) => (
                         <RxChevronDown className="transition group-open:rotate-180" />
                     </summary>
                     <div className="opacity-0 group-open:opacity-100 transition-opacity duration-500 flex flex-wrap">
-                        <p className="py-0.5 px-2 bg-rose-900 rounded-xl m-0.5">PostgreSQL</p>
+                        <Link target="_blank" referrerPolicy="no-referrer" href="https://github.com/innocuous-symmetry/recipe-manager" className="py-0.5 px-2 bg-rose-900 rounded-xl m-0.5 hover:bg-rose-500 active:bg-rose-900">PostgreSQL</Link>
                         <p className="py-0.5 px-2 bg-rose-900 rounded-xl m-0.5">MySQL</p>
-                        <p className="py-0.5 px-2 bg-rose-900 rounded-xl m-0.5">MongoDB</p>
-                        <p className="py-0.5 px-2 bg-rose-900 rounded-xl m-0.5">Caching with Redis</p>
+                        <Link href="/about/work/dropper" className="py-0.5 px-2 bg-rose-900 rounded-xl m-0.5 hover:bg-rose-500 active:bg-rose-900">MongoDB</Link>
+                        <Link href="/about/work/dropper" className="py-0.5 px-2 bg-rose-900 rounded-xl m-0.5 hover:bg-rose-500 active:bg-rose-900">Caching with Redis</Link>
                     </div>
                 </details>
             </article>
@@ -86,7 +86,7 @@ const Skills = ({ visible }: { visible: boolean }) => (
             </article>
         </div>
 
-        <div className="bg-slate-800 shadow shadow-black p-3 my-4 rounded-lg">
+        <div className="bg-slate-800 bg-opacity-40 shadow shadow-black p-3 my-4 rounded-lg">
             <h3 className="uppercase text-2xl text-rose-600">Learning:</h3>
             <article className="mt-2">
                 <details className="group">
@@ -144,7 +144,7 @@ const Skills = ({ visible }: { visible: boolean }) => (
             </article>
         </div>
 
-        <details className="group bg-slate-800 shadow shadow-black p-3 my-4 rounded-lg">
+        <details className="group bg-slate-800 bg-opacity-40 shadow shadow-black p-3 my-4 rounded-lg">
             <summary className="flex items-center uppercase text-2xl text-rose-600 list-none">
                 <p className="mr-2">Soft Skills:</p>
                 <RxChevronDown className="transition group-open:rotate-180" />
