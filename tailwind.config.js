@@ -15,6 +15,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        'darkPlum': '#1e0631',
+      },
       transitionTimingFunction: {
         'quick-start': 'cubic-bezier(.17,.67,0,.89)',
       },

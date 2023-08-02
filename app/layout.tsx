@@ -24,14 +24,21 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [bg, setBg] = useState('bg-slate-900');
+  const [overlay, setOverlay] = useState(false);
+
   const [pageIsScrolled, setPageIsScrolled] = useState(false);
 
   useEffect(() => {
     switch (pathname) {
+      case '/contact':
+        setBg('bg-darkPlum');
+        setOverlay(true);
+        break;
       case '/':
       case '/about':
       default:
         setBg('bg-slate-900');
+        setOverlay(false);
         break;
     }
   }, [pathname])
@@ -60,7 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <IconContext.Provider value={{}}>
           <MDXProvider components={components}>
             <main className={`${bg} min-h-screen`}>
-              <div id="navbar-spacer" className="h-[6rem] w-full" />
+              <div id="navbar-spacer" className="h-[6rem] w-full bg-black" />
               {children}
             </main>
           </MDXProvider>

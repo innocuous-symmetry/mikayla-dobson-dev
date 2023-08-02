@@ -76,7 +76,7 @@ export default function Navbar({ pageIsScrolled = false }) {
 
     return (
         <>
-        <div id="navbar" className={"w-full z-50 fixed flex flex-nowrap items-baseline justify-apart px-8 py-4 " + (mobileMenuOpen ? "bg-[#131313] " : pageIsScrolled ? "bg-black" : "bg-inherit ") + " text-white transition-colors duration-200"}>
+        <div id="navbar" className={"w-full z-50 fixed flex flex-nowrap items-baseline justify-apart bg-opacity-95 px-8 py-4 " + (mobileMenuOpen ? "bg-[#131313] " : pageIsScrolled ? "bg-black " : "bg-inherit ") + " text-white transition-all duration-200"}>
             <Link passHref href="/" className="w-1/4">
                 <InlineLogo customHookInstance={navbarColorShift} />
             </Link>
@@ -101,21 +101,21 @@ export default function Navbar({ pageIsScrolled = false }) {
                 </button>
             </div>
         </div>
-        <div onMouseLeave={() => setMobileMenuOpen(false)} className={`flex flex-col z-50 rounded-bl-lg justify-end md:hidden fixed top-24 w-[25vw] text-right place-self-end bg-[#131313] ${mobileMenuOpen ? 'translate-x-[75vw]' : 'translate-x-[100vw]'} transition-all duration-500`}>
+        <div onMouseLeave={() => setMobileMenuOpen(false)} className={`flex flex-col z-50 rounded-bl-lg justify-end md:hidden fixed top-24 w-[35vw] text-right place-self-end bg-[#131313] ${mobileMenuOpen ? 'translate-x-[65vw]' : 'translate-x-[100vw]'} transition-all duration-500`}>
             {/* <div className="bg-black h-48" /> */}
-            <Link onClick={() => setMobileMenuOpen(false)} passHref href="/" className="w-full">
+            <Link onClick={() => setMobileMenuOpen(false)} passHref href="/" className="w-auto px-2">
                 <p className='text-lg text-right text-white text-opacity-80 hover:text-opacity-100 uppercase p-2 border-opacity-50 hover:border-opacity-75'>Home</p>
             </Link>
 
-            <Link onClick={() => setMobileMenuOpen(false)} passHref href="/about" className="w-full">
+            <Link onClick={() => setMobileMenuOpen(false)} passHref href="/about" className="w-auto px-2">
                 <p className='text-lg text-right text-white text-opacity-80 hover:text-opacity-100 uppercase p-2 border-opacity-50 hover:border-opacity-75'>About</p>
             </Link>
 
-            <Link onClick={() => setMobileMenuOpen(false)} passHref href="/projects" className="w-full">
+            <Link onClick={() => setMobileMenuOpen(false)} passHref href="/projects" className="w-auto px-2">
                 <p className='text-lg text-right text-white text-opacity-80 hover:text-opacity-100 hover:border-opacity-75 uppercase p-2 border-opacity-50'>Projects</p>
             </Link>
 
-            <Link onClick={() => setMobileMenuOpen(false)} passHref href="/contact" className="w-full">
+            <Link onClick={() => setMobileMenuOpen(false)} passHref href="/contact" className="w-auto px-2">
                 <p className='text-lg text-right text-white text-opacity-80 hover:text-opacity-100 uppercase p-2 border-opacity-50 hover:border-opacity-75'>Contact</p>
             </Link>
         </div>
