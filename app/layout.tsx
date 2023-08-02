@@ -16,11 +16,6 @@ export const inter = Inter({ subsets: ['latin'] })
 export const besley = Besley({ subsets: ['latin'] })
 export const cabin = Cabin({ subsets: ['latin'] })
 
-export const metadata = {
-  title: 'Mikayla Dobson | Software Engineer',
-  description: 'Integrating artistry and technology to create beautiful software',
-}
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [bg, setBg] = useState('bg-slate-900');
@@ -56,8 +51,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
+        <title>Mikayla Dobson | Software Engineer</title>
+        <meta name="description" content="Mikayla Dobson is a software engineer based in Nashville, TN" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

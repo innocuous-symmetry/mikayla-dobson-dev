@@ -4,7 +4,6 @@ on:
   push:
     branches:
         - master
-        - next-migration
 jobs:
   build:
     runs-on: ubuntu-latest

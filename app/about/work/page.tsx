@@ -5,3 +5,5 @@ const WorkHistory = () => {
         </div>
     );
 }
+
+export default WorkHistory;
