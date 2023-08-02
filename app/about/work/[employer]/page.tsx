@@ -9,6 +9,10 @@ export default function ExperiencePage() {
             <div id="spacer" className='h-[6rem] w-full' />
             <h1>Work Page</h1>
             <p>Employer: {path.split('/').at(-1)}</p>
+
+            <div>
+                <p>This section is coming soon!</p>
+            </div>
         </div>
     )
 }

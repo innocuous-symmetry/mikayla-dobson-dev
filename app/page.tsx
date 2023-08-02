@@ -1,26 +1,12 @@
-'use client';
-import { useColorShift } from "@/components/logo";
-import { ColorListType } from "@/components/logo/useColorShift";
+import { ColorChangeName } from "@/components/Home";  
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 
 export default function Home() {
-  const router = useRouter();
-  const { firstColor, secondColor, thirdColor } = useColorShift(14000);
-
   return (
     <>
       <div id="hero" className="bg-gradient-to-b from-black to-slate-900 p-4 flex flex-col min-h-[50vh]">
-        <span className={"px-4 mb-2 mt-4 bg-clip-text text-transparent uppercase text-3xl sm:text-6xl font-extrabold bg-opacity-100 animate-text-gradient bg-gradient-to-r " + `from-${firstColor.split('-').slice(1).join('-')} to-${secondColor.split('-').slice(1).join('-')}`}>
-          Mikayla Dobson
-        </span>
-        <h2 className={"px-4 uppercase text-2xl text-transparent font-bold bg-opacity-100 animate-text-gradient bg-clip-text bg-gradient-to-r " + `from-${secondColor.split('-').slice(1).join('-')} to-${thirdColor.split('-').slice(1).join('-')}`}>Software Engineer</h2>
-
-        <div id="hero-mask" className="bg-gradient-to-b from-black to-slate-900 bg-opacity-10 p-4 flex flex-col min-h-[50vh]">
-          <p className="mt-4 text-sky-300 tracking-wide">Pragmatic software design with style and artistry.</p>
-        </div>
+        <ColorChangeName />
 
         {/* <div className="w-full h-[10vh] object-scale-down bg-no-repeat">
           <Image fill src="/backdrops/jean-beller-peW5dg2-cLI-unsplash.jpg" alt="geometric pattern in wood and metal" />

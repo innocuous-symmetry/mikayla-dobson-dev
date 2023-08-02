@@ -25,8 +25,8 @@ export default function Resume() {
                 </div>
 
                 <div className="flex pt-2">
-                    <Link className="flex items-center mr-8 hover:text-sky-300 active:text-white" href="https://github.com/innocuous-symmetry"><FaGithub className="mr-2" />innocuous-symmetry</Link>
-                    <Link className="flex items-center mr-8 hover:text-sky-300 active:text-white" href="https://linkedin.com/in/mikayla-dobson"><FaLinkedin className="mr-2" />mikayla-dobson</Link>
+                    <Link passHref className="flex items-center mr-8 hover:text-sky-300 active:text-white" href="https://github.com/innocuous-symmetry"><FaGithub className="mr-2" />innocuous-symmetry</Link>
+                    <Link passHref className="flex items-center mr-8 hover:text-sky-300 active:text-white" href="https://linkedin.com/in/mikayla-dobson"><FaLinkedin className="mr-2" />mikayla-dobson</Link>
                 </div>
             </section>
 

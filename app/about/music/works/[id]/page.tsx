@@ -7,6 +7,10 @@ export default function MusicalWorkPage({ params }: { params: { id: string }}) {
         <div>
             <h1>Music Works Page</h1>
             <p>Work No. {params.id}</p>
+
+            <div>
+                <p>This page is coming soon!</p>
+            </div>
         </div>
     )
 }

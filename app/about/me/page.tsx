@@ -8,7 +8,8 @@ export default function AboutMe() {
 
     return (
         <div>
-            <h1>So, who is Mikayla Dobson?</h1>
+            <h1>This page is also coming soon!</h1>
+            {/* <h1>So, who is Mikayla Dobson?</h1>
 
             <div>
                 <button onClick={() => setSelected('developer')}>Software Engineer</button>
@@ -34,7 +35,7 @@ export default function AboutMe() {
                         I have experience with the piano, guitar, and more.
                     </p>
                 </div>
-            )}
+            )} */}
         </div>
     )
 }
