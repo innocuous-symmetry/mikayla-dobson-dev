@@ -1,78 +1,14 @@
 import Link from 'next/link'
 import { InlineLogo, useColorShift } from '../logo'
-import { useEffect, useState } from 'react';
-import { UseColorShiftReturnType } from '../logo/useColorShift';
+import { useState } from 'react';
 import { RxActivityLog } from "react-icons/rx";
-
-interface HoverState {
-    about: boolean
-    projects: boolean
-    contact: boolean
-}
+import { NavbarButton } from '../ui/Button';
 
 const SHIFT_INTERVAL = 3000;
 
 export default function Navbar({ pageIsScrolled = false }) {
     const navbarColorShift = useColorShift(SHIFT_INTERVAL);
-    const { shift } = navbarColorShift;
-
-    const [colors, setColors] = useState<Partial<UseColorShiftReturnType>>({
-        firstColor: 'bg-inherit',
-        secondColor: 'bg-inherit',
-        thirdColor: 'bg-inherit',
-    });
-    const [hoverState, setHoverState] = useState<HoverState>({
-        about: false,
-        projects: false,
-        contact: false,
-    })
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-    function mouseOver(source: keyof HoverState) {
-        const { colorKeys, actualColorReferences, activeIndex } = identifyActiveButton();
-
-        setColors({ ...colors, [colorKeys[activeIndex]]: actualColorReferences[activeIndex] });
-        setHoverState({ ...hoverState, [source]: true })
-    }
-
-    function mouseOut(source: keyof HoverState) {
-        setHoverState({ ...hoverState, [source]: false })
-        setColors({ firstColor: 'bg-inherit', secondColor: 'bg-inherit', thirdColor: 'bg-inherit' });
-    }
-
-    function identifyActiveButton() {
-        const buttonKeys: (keyof HoverState)[] = ['about', 'projects', 'contact'];
-        const { firstColor, secondColor, thirdColor } = navbarColorShift;
-        const colorKeys = ['firstColor', 'secondColor', 'thirdColor'];
-        const actualColorReferences = [firstColor, secondColor, thirdColor];
-
-        const activeButton = buttonKeys.find(key => hoverState[key]);
-        const activeIndex = buttonKeys.indexOf(activeButton as keyof HoverState);
-
-        return { colorKeys, actualColorReferences, activeIndex };
-    }
-
-    useEffect(() => {
-        const interval = setInterval(shift, SHIFT_INTERVAL);
-        return () => clearInterval(interval);
-    }, [])
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            const { colorKeys, actualColorReferences, activeIndex } = identifyActiveButton();
-
-            for (const key in hoverState) {
-                if (hoverState[key as keyof HoverState]) {
-                    setColors({
-                        ...colors,
-                        [colorKeys[activeIndex]]: actualColorReferences[activeIndex]
-                    });
-                }
-            }
-        }, 1000);
-
-        return () => clearInterval(interval);
-    }, [shift])
 
     return (
         <>
@@ -82,17 +18,12 @@ export default function Navbar({ pageIsScrolled = false }) {
             </Link>
 
             <div className="hidden md:inline-flex justify-end w-3/4">
-                <Link passHref href="/about" onMouseOver={() => mouseOver('about')} onMouseOut={() => mouseOut('about')} className={`ml-2 ${colors.firstColor} rounded-lg transition-colors ease-quick-start duration-${hoverState.about ? '[5000ms]' : '0'}`}>
-                    <p className='text-lg text-white text-opacity-80 hover:text-opacity-100 uppercase border-white border-2 p-2 rounded-lg border-opacity-50 hover:border-opacity-75'>About</p>
-                </Link>
-
-                <Link passHref href="/projects" onMouseOver={() => mouseOver("projects")} onMouseOut={() => mouseOut('projects')} className={`ml-2 ${colors.secondColor} rounded-lg transition-colors ease-quick-start duration-${hoverState.projects ? '[5000ms]' : '0'}`}>
-                    <p className='text-lg text-white text-opacity-80 hover:text-opacity-100 hover:border-opacity-75 uppercase border-white border-2 p-2 rounded-lg border-opacity-50'>Projects</p>
-                </Link>
-
-                <Link passHref href="/contact" onMouseOver={() => mouseOver('contact')} onMouseOut={() => mouseOut('contact')} className={`ml-2 ${colors.thirdColor} rounded-lg transition-colors ease-quick-start duration-${hoverState.contact ? '[5000ms]' : '0'}`}>
-                    <p className='text-lg text-white text-opacity-80 hover:text-opacity-100 uppercase border-white border-2 p-2 rounded-lg border-opacity-50 hover:border-opacity-75'>Contact</p>
-                </Link>
+                <NavbarButton   href="/about"     label="About"       />
+                <NavbarButton   href="/projects"  label="Projects"    />
+                <NavbarButton   href="/links"     label="Links"       />
+                <NavbarButton   href="/read"      label="Read"        />
+                <NavbarButton   href="/listen"    label="Listen"      />
+                <NavbarButton   href="/contact"   label="Contact"     />
             </div>
 
             <div aria-expanded={mobileMenuOpen} aria-roledescription="mobile-only navbar" className="inline-flex md:hidden justify-end h-full w-3/4">
