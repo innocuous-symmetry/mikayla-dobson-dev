@@ -18,7 +18,7 @@ export const cabin = Cabin({ subsets: ['latin'] })
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const [bg, setBg] = useState('bg-slate-900');
+  const [bg, setBg] = useState('bg-slate-400 dark:bg-slate-900');
   const [overlay, setOverlay] = useState(false);
 
   const [pageIsScrolled, setPageIsScrolled] = useState(false);
@@ -29,10 +29,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         setBg('bg-darkPlum');
         setOverlay(true);
         break;
-      case '/':
       case '/about':
+        setBg("bg-blue-100 dark:bg-slate-900");
+        setOverlay(false);
+        break;
+      case '/':
       default:
-        setBg('bg-slate-900');
+        setBg('bg-slate-400 dark:bg-slate-900');
         setOverlay(false);
         break;
     }
@@ -62,7 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <IconContext.Provider value={{}}>
           <MDXProvider components={components}>
             <main className={`${bg} min-h-screen`}>
-              <div id="navbar-spacer" className="h-[6rem] w-full bg-black" />
+              <div id="navbar-spacer" className="h-[6rem] w-full bg-slate-300 dark:bg-black " />
               {children}
             </main>
           </MDXProvider>

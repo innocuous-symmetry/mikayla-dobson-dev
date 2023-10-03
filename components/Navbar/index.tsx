@@ -12,7 +12,7 @@ export default function Navbar({ pageIsScrolled = false }) {
 
     return (
         <>
-        <div id="navbar" className={"w-full z-50 fixed flex flex-nowrap items-baseline justify-apart bg-opacity-95 px-8 py-4 " + (mobileMenuOpen ? "bg-[#131313] " : pageIsScrolled ? "bg-black " : "bg-inherit ") + " text-white transition-all duration-200"}>
+        <div id="navbar" className={"w-full z-50 fixed flex flex-nowrap items-baseline justify-apart bg-opacity-95 px-8 py-4 " + (mobileMenuOpen ? "bg-slate-300 dark:bg-[#131313]  " : pageIsScrolled ? "bg-slate-300 dark:bg-black " : "bg-inherit ") + " text-white transition-all duration-200"}>
             <Link passHref href="/" className="w-1/4">
                 <InlineLogo customHookInstance={navbarColorShift} />
             </Link>

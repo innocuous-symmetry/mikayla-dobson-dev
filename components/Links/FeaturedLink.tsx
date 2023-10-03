@@ -7,7 +7,7 @@ export default function FeaturedLink({ href, label, logo, disabled = false}: Lin
         <Panel width="1/2">
             <div className="flex flex-col items-center p-8">
                 {logo}
-                <a aria-disabled={disabled} href="https://app.dropper.studio/store/innocuous-symmetry" target="_blank">{label}</a>
+                <a aria-disabled={disabled} href={href} target="_blank">{label}</a>
             </div>
         </Panel>
 

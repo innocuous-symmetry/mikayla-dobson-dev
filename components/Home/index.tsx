@@ -13,7 +13,7 @@ export const ColorChangeName = () => {
         <h2 className={"px-4 uppercase text-2xl text-transparent font-bold bg-opacity-100 animate-text-gradient bg-clip-text bg-gradient-to-r " + `from-${secondColor.split('-').slice(1).join('-')} to-${thirdColor.split('-').slice(1).join('-')}`}>Software Engineer</h2>
 
         <div id="hero-mask" className="bg-inherit bg-opacity-10 p-4 flex flex-col">
-          <p className="mt-4 text-right text-sky-300 tracking-wide">Pragmatic software design with style and artistry.</p>
+          <p className="mt-4 text-right text-slate-700 dark:text-sky-300 tracking-wide">Pragmatic software design with style and artistry.</p>
         </div>
         </>
     )

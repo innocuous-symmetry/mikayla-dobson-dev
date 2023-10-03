@@ -8,6 +8,7 @@ interface PanelProps {
     height?: TailwindFraction | TailwindNumber | undefined
 }
 
+/** @deprecated i kinda hate this */
 const Panel: FC<PanelProps> = ({ children, width, height }) => {
     const narrow = (input: TailwindNumber | TailwindFraction | undefined) => {
         if (typeof input === 'number') return input.toString();
