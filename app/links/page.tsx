@@ -25,10 +25,10 @@ export default function LinksPage() {
                 </Panel>
             </section>
 
-            <section id="social-media-gallery" className="w-3/5 my-12 flex flex-col items-center bg-black rounded">
-                <h1 className="text-3xl w-full my-8">...or on your favorite social media platform:</h1>
+            <section id="social-media-gallery" className="w-3/5 my-12 flex flex-col items-center bg-black text-white rounded">
+                <h1 className="text-3xl w-full text-center my-8">...or on your favorite social media platform:</h1>
 
-                <div className="flex flex-wrap">
+                <div className="flex justify-center w-full">
                     <SocialMedia
                         label="LinkedIn"
                         href="https://www.linkedin.com/in/mikayla-dobson"

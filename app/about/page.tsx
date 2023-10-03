@@ -34,7 +34,7 @@ export default function Resume() {
             </section>
 
             <section className="place-self-start mt-8 w-full">
-                <button onClick={() => setSkillsVisible(!skillsVisible)} className={"sticky top-[5.5rem] w-full flex items-center text-rose-500 dark:text-rose-300 uppercase tracking-wide list-none" + (skillsVisible ? " bg-slate-400 dark:bg-black" : "")}>
+                <button onClick={() => setSkillsVisible(!skillsVisible)} className={"sticky top-[5.5rem] w-full flex items-center px-4 rounded-lg text-rose-500 dark:text-rose-300 uppercase tracking-wide list-none" + (skillsVisible ? " bg-slate-400 dark:bg-black" : "")}>
                     <span className="font-light text-3xl leading-relaxed">Skills</span>
                     <RxChevronDown className={`ml-2 transition ${skillsVisible ? "rotate-180" : "rotate-0"}`} />
                 </button>
@@ -42,7 +42,7 @@ export default function Resume() {
             </section>
 
             <section className="place-self-start mt-8 w-full">
-                <button onClick={() => setExperienceVisible(!experienceVisible)} className={"sticky top-[5.5rem] w-full flex items-center text-rose-500 dark:text-rose-300 uppercase tracking-wide list-none" + (experienceVisible ? "bg-slate-400 dark:bg-black" : "")}>
+                <button onClick={() => setExperienceVisible(!experienceVisible)} className={"sticky top-[5.5rem] w-full flex items-center px-4 rounded-lg text-rose-500 dark:text-rose-300 uppercase tracking-wide list-none " + (experienceVisible ? "bg-slate-400 dark:bg-black" : "")}>
                     <span className="font-light text-3xl leading-relaxed">Experience</span>
                     <RxChevronDown className={`ml-2 transition ${experienceVisible ? "rotate-180" : "rotate-0"}`} />
                 </button>
@@ -50,7 +50,7 @@ export default function Resume() {
             </section>
 
             <section className="place-self-start mt-8 w-full">
-                <button onClick={() => setEducationVisible(!educationVisible)} className={"sticky top-[5.5rem] w-full flex items-center text-rose-300 uppercase tracking-wide list-none" + (educationVisible ? " bg-slate-400 dark:bg-black" : "")}>
+                <button onClick={() => setEducationVisible(!educationVisible)} className={"sticky top-[5.5rem] w-full flex items-center px-4 rounded-lg text-rose-500 dark:text-rose-300 uppercase tracking-wide list-none" + (educationVisible ? " bg-slate-400 dark:bg-black" : "")}>
                     <h2 className="font-light text-3xl leading-relaxed">Education</h2>
                     <RxChevronDown className={`ml-2 transition ${educationVisible ? "rotate-0" : "rotate-180"}`} />
                 </button>
@@ -69,7 +69,7 @@ export default function Resume() {
             </section>
 
             <section className="place-self-start mt-8 w-full">
-                <button onClick={() => setProjectsVisible(!projectsVisible)} className={"sticky top-[5.5rem] w-full flex items-center text-rose-300 uppercase tracking-wide list-none " + (projectsVisible ? " bg-slate-400 dark:bg-black" : "")}>
+                <button onClick={() => setProjectsVisible(!projectsVisible)} className={"sticky top-[5.5rem] w-full flex items-center px-4 rounded-lg text-rose-500 dark:text-rose-300 uppercase tracking-wide list-none " + (projectsVisible ? " bg-slate-400 dark:bg-black" : "")}>
                     <h2 className="font-light text-3xl leading-relaxed">Projects</h2>
                     <RxChevronDown className={`ml-2 transition ${projectsVisible ? "rotate-180" : "rotate-0"}`} />
                 </button>
