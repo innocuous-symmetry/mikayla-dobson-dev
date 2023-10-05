@@ -12,7 +12,17 @@ export default function Navbar({ pageIsScrolled = false }) {
 
     return (
         <>
-        <div id="navbar" className={"w-full z-50 fixed flex flex-nowrap items-baseline justify-apart bg-opacity-95 px-8 py-4 " + (mobileMenuOpen ? "bg-slate-300 dark:bg-[#131313]  " : pageIsScrolled ? "bg-slate-300 dark:bg-black " : "bg-inherit ") + " text-white transition-all duration-200"}>
+        <div
+            id="navbar"
+            className={`
+                w-full z-50 fixed flex flex-nowrap items-baseline justify-apart px-8 py-4
+                ${mobileMenuOpen
+                    ? "bg-slate-300 dark:bg-[#131313]  "
+                    : pageIsScrolled
+                    ? "bg-slate-300 dark:bg-black "
+                    : "bg-inherit "
+                }text-white transition-all duration-200`
+            }>
             <Link passHref href="/" className="w-1/4">
                 <InlineLogo customHookInstance={navbarColorShift} />
             </Link>
@@ -20,9 +30,9 @@ export default function Navbar({ pageIsScrolled = false }) {
             <div className="hidden md:inline-flex justify-end w-3/4">
                 <NavbarButton   href="/about"     label="About"       />
                 <NavbarButton   href="/projects"  label="Projects"    />
-                <NavbarButton   href="/links"     label="Links"       />
                 <NavbarButton   href="/read"      label="Read"        />
                 <NavbarButton   href="/listen"    label="Listen"      />
+                <NavbarButton   href="/links"     label="Links"       />
                 <NavbarButton   href="/contact"   label="Contact"     />
             </div>
 
@@ -33,7 +43,7 @@ export default function Navbar({ pageIsScrolled = false }) {
             </div>
         </div>
         <div onMouseLeave={() => setMobileMenuOpen(false)} className={`flex flex-col z-50 rounded-bl-lg justify-end md:hidden fixed top-24 w-[35vw] text-right place-self-end bg-[#131313] ${mobileMenuOpen ? 'translate-x-[65vw]' : 'translate-x-[100vw]'} transition-all duration-500`}>
-            {/* <div className="bg-black h-48" /> */}
+            <div className="bg-slate-300 dark:bg-black h-48" />
             <Link onClick={() => setMobileMenuOpen(false)} passHref href="/" className="w-auto px-2">
                 <p className='text-lg text-right text-white text-opacity-80 hover:text-opacity-100 uppercase p-2 border-opacity-50 hover:border-opacity-75'>Home</p>
             </Link>

@@ -21,25 +21,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   const [pageIsScrolled, setPageIsScrolled] = useState(false);
 
-  useEffect(() => {
-    if (pathname === '/contact') setOverlay(true);
+  // useEffect(() => {
+  //   if (pathname === '/contact') setOverlay(true);
 
-    switch (pathname) {
-      case '/contact':
-        setBg('bg-darkPlum');
-        break;
-      case '/about':
-        setBg("bg-blue-100 dark:bg-slate-900");
-        break;
-      case "/links":
-        setBg("bg-sky-100 dark:bg-slate-900");
-        break;
-      case '/':
-      default:
-        setBg('bg-slate-400 dark:bg-slate-900');
-        break;
-    }
-  }, [pathname])
+  //   switch (pathname) {
+  //     case '/contact':
+  //       setBg('bg-purple-300 dark:bg-darkPlum');
+  //       break;
+  //     case '/about':
+  //       setBg("bg-blue-100 dark:bg-slate-900");
+  //       break;
+  //     case "/links":
+  //       setBg("bg-sky-100 dark:bg-slate-900");
+  //       break;
+  //     case '/':
+  //     default:
+  //       setBg('bg-slate-400 dark:bg-slate-900');
+  //       break;
+  //   }
+  // }, [pathname])
 
   useEffect(() => {
     document.addEventListener('scroll', () => {
@@ -63,12 +63,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar pageIsScrolled={pageIsScrolled} />
         <SiteTree />
         <IconContext.Provider value={{}}>
-          <main className={`${bg} min-h-screen`}>
-            <div>
-              <div id="navbar-spacer" className="h-[6rem] w-full bg-opacity-75 bg-slate-300 dark:bg-black " />
-              {children}
-            </div>
-          </main>
+          <div>
+            <div id="navbar-spacer" className="h-[6rem] w-full bg-slate-300 dark:bg-black " />
+            {children}
+          </div>
         </IconContext.Provider>
       </body>
     </html>
