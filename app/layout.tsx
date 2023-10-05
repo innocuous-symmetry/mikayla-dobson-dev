@@ -65,10 +65,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <IconContext.Provider value={{}}>
           <MDXProvider components={components}>
             <main className={`${bg} min-h-screen`}>
-              <>
-              <div id="navbar-spacer" className="h-[6rem] w-full bg-slate-300 dark:bg-black " />
-              {children}
-              </>
+              <div>
+                <div id="navbar-spacer" className="h-[6rem] w-full bg-slate-300 dark:bg-black " />
+                {children}
+              </div>
             </main>
           </MDXProvider>
         </IconContext.Provider>

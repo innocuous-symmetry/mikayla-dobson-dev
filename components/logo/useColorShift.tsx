@@ -24,16 +24,22 @@ export interface UseColorShiftReturnType {
 const useColorShift = (shiftInterval?: number, disableShift = false, customColorList?: ColorListType[]): UseColorShiftReturnType => {
     if (shiftInterval && shiftInterval <= 0) throw new Error("shiftInterval must be greater than 0")
 
-    const randomColor = () => (customColorList ?? colorList)[Math.floor(Math.random() * colorList.length | 0)];
+    const randomColor = () => {
+        const list = customColorList ?? colorList;
+        const color = list[Math.floor(Math.random() * list.length || 0)];
+
+        if (!color) throw new Error("color is undefined");
+        return color;
+    }
 
     const [circleColors, setCircleColors] = useState<{
-        firstColor: ColorListType | "",
-        secondColor: ColorListType | "",
-        thirdColor: ColorListType | "",
+        firstColor:     ColorListType | "",
+        secondColor:    ColorListType | "",
+        thirdColor:     ColorListType | "",
     }>({
-        firstColor: colorList[0],
-        secondColor: colorList[1],
-        thirdColor: colorList[2],
+        firstColor:     colorList[0] ?? randomColor(),
+        secondColor:    colorList[1] ?? randomColor(),
+        thirdColor:     colorList[2] ?? randomColor(),
     })
 
     function shift() {
@@ -46,7 +52,10 @@ const useColorShift = (shiftInterval?: number, disableShift = false, customColor
     }
 
     // perform initial mount of color changing pattern
-    useEffect(disableShift ? shift : (() => { return }), []);
+    useEffect(() => {
+        if (!disableShift) return;
+        shift();
+    }, []);
 
     // set this function to repeat
     useEffect(() => {
