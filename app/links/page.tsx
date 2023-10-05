@@ -6,8 +6,7 @@ import { RxArrowRight } from "react-icons/rx";
 
 export default function LinksPage() {
     return (
-        <article className="flex flex-col items-center">
-
+        <div className="flex flex-col items-center bg-gradient-to-b from-slate-300 to-sky-100 dark:from-black dark:to-slate-900 bg-fixed">
             <section className="flex flex-col flex-wrap w-11/12 m-12">
                 <h1 className="text-3xl w-full my-8">Check out my work on...</h1>
                 <Panel width="1/2">
@@ -68,6 +67,6 @@ export default function LinksPage() {
                     />
                 </div>
             </section>
-        </article>
+        </div>
     )
 }

@@ -22,19 +22,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const [pageIsScrolled, setPageIsScrolled] = useState(false);
 
   useEffect(() => {
+    if (pathname === '/contact') setOverlay(true);
+
     switch (pathname) {
       case '/contact':
         setBg('bg-darkPlum');
-        setOverlay(true);
         break;
       case '/about':
         setBg("bg-blue-100 dark:bg-slate-900");
-        setOverlay(false);
+        break;
+      case "/links":
+        setBg("bg-sky-100 dark:bg-slate-900");
         break;
       case '/':
       default:
         setBg('bg-slate-400 dark:bg-slate-900');
-        setOverlay(false);
         break;
     }
   }, [pathname])
@@ -63,7 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <IconContext.Provider value={{}}>
           <main className={`${bg} min-h-screen`}>
             <div>
-              <div id="navbar-spacer" className="h-[6rem] w-full bg-slate-300 dark:bg-black " />
+              <div id="navbar-spacer" className="h-[6rem] w-full bg-opacity-75 bg-slate-300 dark:bg-black " />
               {children}
             </div>
           </main>
