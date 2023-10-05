@@ -5,8 +5,6 @@ import './globals.css'
 import Head from 'next/head'
 import Navbar from '@/components/Navbar'
 import SiteTree from '@/components/SiteTree'
-import components from '@/components/mdx'
-import { MDXProvider } from '@mdx-js/react'
 import { Inter, Besley, Cabin } from 'next/font/google'
 import { usePathname } from 'next/navigation'
 import { IconContext } from 'react-icons'
@@ -63,14 +61,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar pageIsScrolled={pageIsScrolled} />
         <SiteTree />
         <IconContext.Provider value={{}}>
-          <MDXProvider components={components}>
-            <main className={`${bg} min-h-screen`}>
-              <div>
-                <div id="navbar-spacer" className="h-[6rem] w-full bg-slate-300 dark:bg-black " />
-                {children}
-              </div>
-            </main>
-          </MDXProvider>
+          <main className={`${bg} min-h-screen`}>
+            <div>
+              <div id="navbar-spacer" className="h-[6rem] w-full bg-slate-300 dark:bg-black " />
+              {children}
+            </div>
+          </main>
         </IconContext.Provider>
       </body>
     </html>
