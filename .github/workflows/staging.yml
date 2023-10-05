@@ -1,0 +1,19 @@
+name: build check (mikayla dot dev)
+
+on:
+  push:
+    branches:
+        - staging
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+      with:
+        ref: staging
+    - name: install
+      run: npm install
+    - name: build check
+      run: npm run build

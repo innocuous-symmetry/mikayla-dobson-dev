@@ -5,8 +5,6 @@ import './globals.css'
 import Head from 'next/head'
 import Navbar from '@/components/Navbar'
 import SiteTree from '@/components/SiteTree'
-import components from '@/components/mdx'
-import { MDXProvider } from '@mdx-js/react'
 import { Inter, Besley, Cabin } from 'next/font/google'
 import { usePathname } from 'next/navigation'
 import { IconContext } from 'react-icons'
@@ -18,25 +16,30 @@ export const cabin = Cabin({ subsets: ['latin'] })
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const [bg, setBg] = useState('bg-slate-900');
+  const [bg, setBg] = useState('bg-slate-400 dark:bg-slate-900');
   const [overlay, setOverlay] = useState(false);
 
   const [pageIsScrolled, setPageIsScrolled] = useState(false);
 
-  useEffect(() => {
-    switch (pathname) {
-      case '/contact':
-        setBg('bg-darkPlum');
-        setOverlay(true);
-        break;
-      case '/':
-      case '/about':
-      default:
-        setBg('bg-slate-900');
-        setOverlay(false);
-        break;
-    }
-  }, [pathname])
+  // useEffect(() => {
+  //   if (pathname === '/contact') setOverlay(true);
+
+  //   switch (pathname) {
+  //     case '/contact':
+  //       setBg('bg-purple-300 dark:bg-darkPlum');
+  //       break;
+  //     case '/about':
+  //       setBg("bg-blue-100 dark:bg-slate-900");
+  //       break;
+  //     case "/links":
+  //       setBg("bg-sky-100 dark:bg-slate-900");
+  //       break;
+  //     case '/':
+  //     default:
+  //       setBg('bg-slate-400 dark:bg-slate-900');
+  //       break;
+  //   }
+  // }, [pathname])
 
   useEffect(() => {
     document.addEventListener('scroll', () => {
@@ -60,12 +63,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar pageIsScrolled={pageIsScrolled} />
         <SiteTree />
         <IconContext.Provider value={{}}>
-          <MDXProvider components={components}>
-            <main className={`${bg} min-h-screen`}>
-              <div id="navbar-spacer" className="h-[6rem] w-full bg-black" />
-              {children}
-            </main>
-          </MDXProvider>
+          <div>
+            <div id="navbar-spacer" className="h-[6rem] w-full bg-slate-300 dark:bg-black " />
+            {children}
+          </div>
         </IconContext.Provider>
       </body>
     </html>
