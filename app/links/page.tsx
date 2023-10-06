@@ -1,10 +1,7 @@
 import SocialMedia from "@/components/Links/SocialMedia";
-import Panel from "@/components/ui/Panel";
-import Image from "next/image";
-import { FaBandcamp, FaGithub, FaLinkedin, FaPatreon, FaSoundcloud, FaYoutube } from "react-icons/fa";
-import { RxArrowRight } from "react-icons/rx";
+import { FaBandcamp, FaGithub, FaLinkedin, FaSoundcloud } from "react-icons/fa";
 
-export default function LinksPage() {
+export default async function LinksPage() {
     return (
         <div className="flex flex-col min-h-screen min-w-screen items-center bg-gradient-to-b from-slate-300 to-sky-100 dark:from-black dark:to-slate-900 bg-fixed">
             {/* <section className="flex flex-col flex-wrap w-11/12 m-12">

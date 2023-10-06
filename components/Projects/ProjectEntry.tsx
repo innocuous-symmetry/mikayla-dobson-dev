@@ -1,17 +1,7 @@
-import Image from "next/image";
-import ProjectRepository from "@/server/actions/project.actions";
+import ProjectRepository from "@/server/actions/project.actions"
+import Image from "next/image"
 
-interface PageProps {
-    searchParams: any;
-    params: {
-        id: any;
-    }
-    children: React.ReactNode;
-}
-
-export default async function ProjectById(props: PageProps) {
-    const { id } = props.params;
-
+export default async function ProjectEntry({ id }: { id: string }) {
     const projects = new ProjectRepository();
     const project = await projects.getProjectById(id);
 
@@ -23,8 +13,8 @@ export default async function ProjectById(props: PageProps) {
         <article id="project-entry-body">
             <header>
                 <h1 className="text-4xl font-bold">{project.name}</h1>
-                {/* <p>Started: {project.startDate.toLocaleString()}</p>
-                <p>{project.endDate ? `Finished: ${project.endDate.toLocaleDateString()}` : "(In progress)"}</p> */}
+                <p>Started: {project.startDate.toLocaleString()}</p>
+                <p>{project.endDate ? `Finished: ${project.endDate.toLocaleDateString()}` : "(In progress)"}</p>
             </header>
 
             <div id="project-entry-content" className="flex flex-col">

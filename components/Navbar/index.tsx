@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { InlineLogo, useColorShift } from '../logo'
+import { InlineLogo, useColorShift } from './logo'
 import { useState } from 'react';
 import { RxActivityLog } from "react-icons/rx";
 import { NavbarButton } from '../ui/Button';

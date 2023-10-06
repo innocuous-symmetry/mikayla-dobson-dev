@@ -1,8 +1,8 @@
 'use client'
 import { FC } from "react";
-import useColorShift, { UseColorShiftReturnType, type ColorListType } from "./useColorShift";
+import useColorShift, { UseColorShiftReturnType, type ColorListType } from "../../hooks/useColorShift";
 import { useRouter } from "next/navigation";
-export { default as useColorShift } from "./useColorShift";
+export { default as useColorShift } from "../../hooks/useColorShift";
 
 const DEFAULT_SHIFT_INTERVAL = 3000;
 

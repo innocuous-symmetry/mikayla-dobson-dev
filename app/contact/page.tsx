@@ -1,5 +1,5 @@
 'use client';
-import { contactFormSubmit, testMailerSDK } from "@/server/actions/mailer.actions"
+import { testMailerSDK } from "@/server/actions/mailer.actions"
 import { useMemo, useState } from "react";
 
 export default function ContactPage() {
