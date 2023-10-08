@@ -1,0 +1,29 @@
+{
+    "name": "@mkladotdev/utils",
+    "version": "0.0.1",
+    "description": "Utilities for mikayla.dev",
+    "main": "./lib/index.js",
+    "types": "./lib/index.d.ts",
+    "files": [
+      "./lib/**/*"
+    ],
+    "scripts": {
+      "build": "tsc",
+      "lint": "eslint . --ext .ts",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "Mikayla Dobson",
+    "license": "ISC",
+    "dependencies": {},
+    "devDependencies": {
+      "@types/node": "^20.5.9",
+      "@typescript-eslint/eslint-plugin": "^6.6.0",
+      "@typescript-eslint/parser": "^6.6.0",
+      "eslint": "^8.49.0",
+      "typescript": "^5.2.2"
+    },
+    "publishConfig": {
+      "registry": "http://localhost:4873"
+    }
+}

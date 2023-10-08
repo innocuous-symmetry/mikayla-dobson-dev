@@ -2,7 +2,7 @@ import { ColorChangeName } from "@/components/Home";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
   return (
     <main className="min-h-screen bg-fixed bg-gradient-to-b from-slate-300 to-slate-400 dark:from-black dark:to-slate-900">
       <div className="flex flex-col w-full">

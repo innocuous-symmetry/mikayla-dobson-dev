@@ -1,5 +1,10 @@
 name: build check (mikayla dot dev)
 
+env:
+  POSTGRES_URL: ${{ secrets.POSTGRES_URL }}
+  POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+  POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+
 on:
   push:
     branches:

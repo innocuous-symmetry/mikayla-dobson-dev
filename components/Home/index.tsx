@@ -1,6 +1,6 @@
 'use client';
 
-import { useColorShift } from "../logo";
+import { useColorShift } from "../Navbar/logo";
 
 export const ColorChangeName = () => {
     const { firstColor, secondColor, thirdColor } = useColorShift(14000);

@@ -1,14 +1,26 @@
+'use client';
 import Link from 'next/link'
-import { InlineLogo, useColorShift } from '../logo'
-import { useState } from 'react';
+import { InlineLogo, useColorShift } from './logo'
+import { useEffect, useState } from 'react';
 import { RxActivityLog } from "react-icons/rx";
 import { NavbarButton } from '../ui/Button';
 
 const SHIFT_INTERVAL = 3000;
 
-export default function Navbar({ pageIsScrolled = false }) {
+export default function Navbar() {
     const navbarColorShift = useColorShift(SHIFT_INTERVAL);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [pageIsScrolled, setPageIsScrolled] = useState(false);
+
+    useEffect(() => {
+        document.addEventListener('scroll', () => {
+          if (window.scrollY > 0) {
+            setPageIsScrolled(true);
+          } else {
+            setPageIsScrolled(false);
+          }
+        })
+    }, [])
 
     return (
         <>
@@ -16,12 +28,8 @@ export default function Navbar({ pageIsScrolled = false }) {
             id="navbar"
             className={`
                 w-full z-50 fixed flex flex-nowrap items-baseline justify-apart px-8 py-4
-                ${mobileMenuOpen
-                    ? "bg-slate-300 dark:bg-[#131313]  "
-                    : pageIsScrolled
-                    ? "bg-slate-300 dark:bg-black "
-                    : "bg-inherit "
-                }text-white transition-all duration-200`
+                ${pageIsScrolled ? "bg-slate-300 dark:bg-black " : "bg-inherit "}
+                text-white transition-all duration-200`
             }>
             <Link passHref href="/" className="w-1/4">
                 <InlineLogo customHookInstance={navbarColorShift} />
