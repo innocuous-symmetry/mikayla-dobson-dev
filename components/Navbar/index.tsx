@@ -1,14 +1,26 @@
+'use client';
 import Link from 'next/link'
 import { InlineLogo, useColorShift } from './logo'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RxActivityLog } from "react-icons/rx";
 import { NavbarButton } from '../ui/Button';
 
 const SHIFT_INTERVAL = 3000;
 
-export default function Navbar({ pageIsScrolled = false }) {
+export default function Navbar() {
     const navbarColorShift = useColorShift(SHIFT_INTERVAL);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [pageIsScrolled, setPageIsScrolled] = useState(false);
+
+    useEffect(() => {
+        document.addEventListener('scroll', () => {
+          if (window.scrollY > 0) {
+            setPageIsScrolled(true);
+          } else {
+            setPageIsScrolled(false);
+          }
+        })
+    }, [])
 
     return (
         <>
