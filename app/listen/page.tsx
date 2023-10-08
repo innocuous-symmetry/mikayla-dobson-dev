@@ -5,7 +5,7 @@ export default async function ListenIndex() {
         <div>
             <h1>Listen</h1>
             {/* @ts-ignore server component */}
-            {/* <InProgress /> */}
+            <InProgress />
         </div>
     )
 }

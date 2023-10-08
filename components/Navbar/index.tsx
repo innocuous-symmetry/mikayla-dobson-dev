@@ -28,12 +28,8 @@ export default function Navbar() {
             id="navbar"
             className={`
                 w-full z-50 fixed flex flex-nowrap items-baseline justify-apart px-8 py-4
-                ${mobileMenuOpen
-                    ? "bg-slate-300 dark:bg-[#131313]  "
-                    : pageIsScrolled
-                    ? "bg-slate-300 dark:bg-black "
-                    : "bg-inherit "
-                }text-white transition-all duration-200`
+                ${pageIsScrolled ? "bg-slate-300 dark:bg-black " : "bg-inherit "}
+                text-white transition-all duration-200`
             }>
             <Link passHref href="/" className="w-1/4">
                 <InlineLogo customHookInstance={navbarColorShift} />

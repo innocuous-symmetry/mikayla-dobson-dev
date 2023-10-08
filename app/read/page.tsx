@@ -1,3 +1,5 @@
-export default function BlogIndex() {
-    return <div>BlogIndex</div>;
+import InProgress from "@/components/InProgress";
+
+export default async function BlogIndex() {
+    return <InProgress />;
 }
