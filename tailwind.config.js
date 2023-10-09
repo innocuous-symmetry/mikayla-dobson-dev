@@ -11,6 +11,9 @@ module.exports = {
     },
     {
       pattern: /to-.*/,
+    },
+    {
+      pattern: /bg-.*/,
     }
   ],
   theme: {

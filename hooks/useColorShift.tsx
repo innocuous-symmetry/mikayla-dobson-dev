@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+'use client';
+import { useCallback, useEffect, useState } from "react";
 import { DefaultColors } from "tailwindcss/types/generated/colors";
 
 export type ColorListType = (`bg-${keyof DefaultColors}` | `bg-${keyof DefaultColors}-${string}` | "");
@@ -24,13 +25,13 @@ export interface UseColorShiftReturnType {
 const useColorShift = (shiftInterval?: number, disableShift = false, customColorList?: ColorListType[]): UseColorShiftReturnType => {
     if (shiftInterval && shiftInterval <= 0) throw new Error("shiftInterval must be greater than 0")
 
-    const randomColor = () => {
+    const randomColor = useCallback(() => {
         const list = customColorList ?? colorList;
         const color = list[Math.floor(Math.random() * list.length || 0)];
 
         if (!color) throw new Error("color is undefined");
         return color;
-    }
+    }, [customColorList]);
 
     const [circleColors, setCircleColors] = useState<{
         firstColor:     ColorListType | "",
@@ -42,20 +43,20 @@ const useColorShift = (shiftInterval?: number, disableShift = false, customColor
         thirdColor:     colorList[2] ?? randomColor(),
     })
 
-    function shift() {
+    const shift = useCallback(() => {
         const firstColor = randomColor();
         const secondColor = randomColor();
         const thirdColor = randomColor();
 
         setCircleColors({ firstColor, secondColor, thirdColor });
         return { firstColor, secondColor, thirdColor };
-    }
+    }, [randomColor]);
 
     // perform initial mount of color changing pattern
     useEffect(() => {
         if (!disableShift) return;
         shift();
-    }, []);
+    }, [disableShift, shift]);
 
     // set this function to repeat
     useEffect(() => {
@@ -64,7 +65,7 @@ const useColorShift = (shiftInterval?: number, disableShift = false, customColor
         }, shiftInterval ?? 3000);
 
         return () => clearInterval(interval);
-    }, [])
+    }, [shift, shiftInterval])
 
     return { ...circleColors, shift, shiftInterval };
 }

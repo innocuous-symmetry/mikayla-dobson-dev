@@ -1,5 +1,5 @@
 'use client'
-import { FC } from "react";
+import type { FC } from "react";
 import useColorShift, { UseColorShiftReturnType, type ColorListType } from "../../hooks/useColorShift";
 import { useRouter } from "next/navigation";
 export { default as useColorShift } from "../../hooks/useColorShift";
@@ -50,15 +50,15 @@ export const InlineLogo: FC<LogoProps> = ({ shiftInterval, customColorList, cust
 
     if (customHookInstance) return (
         <button onClick={() => router.push('/')} id="inline-logo-container" className="flex w-auto h-auto justify-center">
-            <div className={`flex flex-col items-center justify-center h-16 w-16 bg-opacity-75 ${customHookInstance.firstColor} transition-colors duration-[5000ms] rounded-full`}>
+            <div className={`flex flex-col items-center justify-center h-16 w-16 bg-opacity-75 ${customHookInstance.firstColor} transition-colors duration-1000 rounded-full`}>
                 <p className="text-black dark:text-white text-2xl font-bold opacity-100">M</p>
             </div>
 
-            <div className={`flex flex-col -ml-3 items-center justify-center h-16 w-16 bg-opacity-75 ${customHookInstance.secondColor} transition-colors duration-[5000ms] rounded-full`}>
+            <div className={`flex flex-col -ml-3 items-center justify-center h-16 w-16 bg-opacity-75 ${customHookInstance.secondColor} transition-colors duration-1000 rounded-full`}>
                 <p className="text-black dark:text-white text-2xl font-bold opacity-100">C</p>
             </div>
 
-            <div className={`flex flex-col -ml-3 items-center justify-center h-16 w-16 bg-opacity-75 ${customHookInstance.thirdColor} transition-colors duration-[5000ms] rounded-full`}>
+            <div className={`flex flex-col -ml-3 items-center justify-center h-16 w-16 bg-opacity-75 ${customHookInstance.thirdColor} transition-colors duration-1000 rounded-full`}>
                 <p className="text-black dark:text-white text-2xl font-bold opacity-100">D</p>
             </div>
         </button>
