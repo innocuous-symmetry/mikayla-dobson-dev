@@ -6,6 +6,7 @@ import { RxChevronDown } from "react-icons/rx";
 import { useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Card from "@/components/ui/Card";
+import ResumeDownloader from "@/components/About/ResumeDownloader";
 
 export default function Resume() {
     const [skillsVisible, setSkillsVisible] = useState(true);
@@ -21,11 +22,10 @@ export default function Resume() {
 
                 <div className="hidden bg-slate-950"></div>
 
-                <div className="flex items-center pt-2 dark:text-rose-100">
-                    <p className="mr-2">Download a copy for later?</p>
-                    <a download href="/resume/Mikayla Resume 0623.pdf" target="_blank" referrerPolicy="no-referrer" rel="noopener" className="mr-2 cursor-pointer hover:text-sky-300 active:text-white bg-slate-500 dark:bg-slate-800 py-1 px-1.5 rounded-lg">.pdf</a>
-                    <a download href="/resume/Mikayla Resume 0623.docx" target="_blank" referrerPolicy="no-referrer" rel="noopener" className="mr-2 cursor-pointer hover:text-sky-300 active:text-white bg-slate-500 dark:bg-slate-800 py-1 px-1.5 rounded-lg">.docx</a>
-                </div>
+                <ResumeDownloader
+                    label="Download a copy for later?"
+                    paths={["/resume/Mikayla Resume 1023.pdf", "/resume/Mikayla Resume 1023.docx"]}
+                />
 
                 <div className="flex pt-2">
                     <Link passHref className="flex items-center dark:text-white mr-8 hover:text-sky-300 active:text-white" href="https://github.com/innocuous-symmetry"><FaGithub className="mr-2" />innocuous-symmetry</Link>
