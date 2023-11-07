@@ -8,8 +8,8 @@ export const ZMusicStreamingEntry = z.object({
     name: z.string().max(100),
     shortDescription: z.string().max(100),
     longDescription: z.string().max(1000),
+    pathToEntry: z.string(),
     tags: z.array(z.string().max(100)).optional(),
-    pathToEntry: z.string().optional(),
 });
 
 export type MusicStreamingEntry = z.infer<typeof ZMusicStreamingEntry>;
