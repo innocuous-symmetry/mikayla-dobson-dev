@@ -6,3 +6,5 @@ export function must<T = any>(func: CallableFunction): T {
         throw e;
     }
 }
+
+export type Maybe<T> = T | null | undefined;

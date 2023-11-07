@@ -3,12 +3,15 @@ import { z } from 'zod';
 
 const env = createEnv({
     server: {
+        NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
+
         POSTGRES_URL: z.string().url(),
         POSTGRES_USER: z.string(),
         POSTGRES_PASSWORD: z.string(),
 
         S3_ENDPOINT: z.string().url(),
         S3_ACCESS_KEY: z.string(),
+        S3_BUCKET: z.string(),
         S3_SECRET: z.string().optional(),
 
         KV_URL: z.string(),
@@ -20,6 +23,7 @@ const env = createEnv({
 
         S3_ENDPOINT: process.env.S3_ENDPOINT,
         S3_ACCESS_KEY: process.env.S3_ACCESS_KEY,
+        S3_BUCKET: process.env.S3_BUCKET,
         S3_SECRET: process.env.S3_SECRET,
 
         KV_URL: process.env.KV_URL,
