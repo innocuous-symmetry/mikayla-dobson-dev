@@ -1,2 +1,0 @@
-# Helpers for mikayla.dev
-

@@ -9,13 +9,12 @@ export class PostgresError extends Error {
     }
 }
 
-export default async function createClient() {
+export default function createClient() {
     try {
         return new Client({
-            connectionString: env.POSTGRES_URL,
-            user: env.POSTGRES_USER,
-            password: env.POSTGRES_PASSWORD,
-            ssl: { rejectUnauthorized: false }
+            connectionString: `${env.POSTGRES_URL}?sslmode=require`,
+            // user: env.POSTGRES_USER,
+            // password: env.POSTGRES_PASSWORD,
         });
     } catch(e) {
         console.log('error creating client', e);
