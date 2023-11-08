@@ -1,4 +1,4 @@
-import { AudioGallery } from "@/components/Audio/AudioGallery";
+import { AudioGallery } from "@/components/Music/AudioGallery";
 import NotFound from "@/components/NotFound";
 import MusicController from "@/server/controllers/music.controller";
 import { S3Service } from "@/server/s3";

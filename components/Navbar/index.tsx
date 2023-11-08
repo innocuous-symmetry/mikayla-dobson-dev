@@ -4,6 +4,8 @@ import { InlineLogo, useColorShift } from './logo'
 import { useEffect, useState } from 'react';
 import { RxActivityLog } from "react-icons/rx";
 import { NavbarButton } from '../ui/Button';
+import useAudio from '@/hooks/useAudio';
+import AudioPlayer from '../Music/AudioPlayer/index';
 
 const SHIFT_INTERVAL = 3000;
 
@@ -68,6 +70,7 @@ export default function Navbar() {
                 <p className='text-lg text-right text-white text-opacity-80 hover:text-opacity-100 uppercase p-2 border-opacity-50 hover:border-opacity-75'>Contact</p>
             </Link>
         </div>
+        <AudioPlayer />
         </>
     )
 }

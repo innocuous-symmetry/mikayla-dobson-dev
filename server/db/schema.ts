@@ -8,7 +8,13 @@ export const ZMusicStreamingEntry = z.object({
     name: z.string().max(100),
     shortdescription: z.string().max(100),
     longdescription: z.string().max(1000),
+
+    /** where to find the track in AWS S3 */
     pathtoentry: z.string(),
+
+    // optional properties
+    artist: z.string().max(100).optional(),
+    year: z.number().min(1900).max(2100).optional(),
     tags: z.array(z.string().max(100)).optional(),
 });
 

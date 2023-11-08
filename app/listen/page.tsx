@@ -1,4 +1,4 @@
-import FullMusicList from "@/components/Audio/FullMusicList";
+import FullMusicList from "@/components/Music/FullMusicList";
 import MusicController from "@/server/controllers/music.controller";
 import { Suspense } from "react";
 
