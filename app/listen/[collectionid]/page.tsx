@@ -14,7 +14,6 @@ export default async function ListenByCollectionID({ params }: { params: { colle
 
     // const path = S3Service.asEndpoint(result.pathtoentry);
     const entries = await S3Service.getURLs(result.pathtoentry);
-    if (!entries) return <NotFound />
 
     return (
         <div>

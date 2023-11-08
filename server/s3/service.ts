@@ -1,4 +1,4 @@
-import { GetObjectCommand, ListObjectsV2Command, PutObjectCommand, PutObjectCommandOutput, S3Client, _Object } from "@aws-sdk/client-s3";
+import { GetObjectCommand, ListObjectsV2Command, S3Client, _Object } from "@aws-sdk/client-s3";
 import { env } from "@/env.mjs";
 import createS3Client from "./createClient";
 import { Maybe, must } from "@/util/helpers";
@@ -20,7 +20,6 @@ export default class S3Service {
 
             const url = await getSignedUrl(client, command, { expiresIn: 3600 });
             return url
-
         } catch (error) {
             console.log({ error });
             return null;
@@ -48,8 +47,6 @@ export default class S3Service {
 
                 const { Contents, IsTruncated, NextContinuationToken } = res;
 
-                console.log({ Contents });
-
                 if (Contents) result.push(...Contents);
                 isTruncated = IsTruncated ?? false;
                 cmd.input.ContinuationToken = NextContinuationToken;
@@ -70,7 +67,6 @@ export default class S3Service {
             files?.forEach(async(file) => {
                 if (file.Key) {
                     const url = await this.getURL(file.Key);
-                    console.log({ url })
                     if (url) output.push(url);
                 }
             });

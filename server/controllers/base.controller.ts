@@ -7,14 +7,14 @@ import { createS3Client } from '../s3';
 import createRedisClient from '../cache/createClient';
 import { ParseParams, SafeParseReturnType } from 'zod';
 
-type FullParserType<T> = (data: any, params?: Partial<ParseParams> | undefined) => SafeParseReturnType<any, T>
+type FullParserType<T extends { [key: string]: any }> = (data: any, params?: Partial<ParseParams> | undefined) => SafeParseReturnType<any, T>
 
-type ControllerOptions<T> = {
+type ControllerOptions<T extends { [key: string]: any }> = {
     tableName: string
     parser?: FullParserType<T>
 }
 
-export default abstract class BaseController<T> {
+export default abstract class BaseController<T extends { [key: string]: any }> {
     #db: pg.Client
     // #bucket: S3Client
     // #cache: Redis
@@ -31,13 +31,23 @@ export default abstract class BaseController<T> {
         this.parser     = options.parser;
     }
 
-    async getAll(projection?: string): Promise<Maybe<T[]>> {
+    async getAll(): Promise<Maybe<T[]>> {
         'use server';
         try {
             // we'll enable cache here later
             await this.#db.connect();
+            const result = await this.#db.query(`SELECT * FROM ${this.tableName}`);
 
-            const result = await this.#db.query("SELECT $1 FROM $2", [projection ?? "*", this.tableName]);
+            if (this.parser) {
+                result.rows.forEach((row, idx) => {
+                    const parsed = (this.parser as FullParserType<T>)(row);
+                    if (!parsed.success) {
+                        console.log(`Failed to parse row ${idx} of ${this.tableName}`);
+                        console.log(parsed.error);
+                    }
+                })
+            }
+
             return result.rows;
         } catch (error) {
             console.log({ error });
@@ -47,10 +57,18 @@ export default abstract class BaseController<T> {
         }
     }
 
-    async getByID(id: number, projection?: string): Promise<Maybe<T>> {
+    async getByID(id: number, projection?: (keyof T)[]): Promise<Maybe<T>> {
         try {
             await this.#db.connect();
-            const result = await this.#db.query(`SELECT ${projection ?? "*"} FROM ${this.tableName} WHERE id = ${id}`);
+            const finalProjection = projection?.join(", ") ?? "*";
+
+            const result = await this.#db.query(`SELECT ${finalProjection} FROM ${this.tableName} WHERE id = ${id}`);
+
+            if (this.parser) {
+                const parsed = this.parser(result.rows[0]);
+                if (parsed.success) return parsed.data;
+            }
+
             return result.rows[0];
         } catch (error) {
             console.log({ error });
