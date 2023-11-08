@@ -15,7 +15,7 @@ type ControllerOptions<T extends { [key: string]: any }> = {
 }
 
 export default abstract class BaseController<T extends { [key: string]: any }> {
-    #db: pg.Client
+    protected db: pg.Client
     // #bucket: S3Client
     // #cache: Redis
 
@@ -23,7 +23,7 @@ export default abstract class BaseController<T extends { [key: string]: any }> {
     parser?: FullParserType<T>
 
     constructor(options: ControllerOptions<T>) {
-        this.#db        = must(createDBClient);
+        this.db        = must(createDBClient);
         // this.#bucket    = must(createS3Client);
         // this.#cache     = must(createRedisClient);
 
@@ -35,8 +35,8 @@ export default abstract class BaseController<T extends { [key: string]: any }> {
         'use server';
         try {
             // we'll enable cache here later
-            await this.#db.connect();
-            const result = await this.#db.query(`SELECT * FROM ${this.tableName}`);
+            await this.db.connect();
+            const result = await this.db.query(`SELECT * FROM ${this.tableName}`);
 
             if (this.parser) {
                 result.rows.forEach((row, idx) => {
@@ -53,16 +53,16 @@ export default abstract class BaseController<T extends { [key: string]: any }> {
             console.log({ error });
             return null;
         } finally {
-            await this.#db.end();
+            await this.db.end();
         }
     }
 
     async getByID(id: number, projection?: (keyof T)[]): Promise<Maybe<T>> {
         try {
-            await this.#db.connect();
+            await this.db.connect();
             const finalProjection = projection?.join(", ") ?? "*";
 
-            const result = await this.#db.query(`SELECT ${finalProjection} FROM ${this.tableName} WHERE id = ${id}`);
+            const result = await this.db.query(`SELECT ${finalProjection} FROM ${this.tableName} WHERE id = ${id}`);
 
             if (this.parser) {
                 const parsed = this.parser(result.rows[0]);
@@ -74,7 +74,7 @@ export default abstract class BaseController<T extends { [key: string]: any }> {
             console.log({ error });
             return null;
         } finally {
-            await this.#db.end();
+            await this.db.end();
         }
     }
 }

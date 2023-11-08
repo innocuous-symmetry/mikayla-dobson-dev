@@ -7,4 +7,8 @@ export function must<T = any>(func: CallableFunction): T {
     }
 }
 
+export function prettyFileName(key: string): string {
+    return key.split('/').pop()?.split(".").shift() ?? "INVALID KEY";
+}
+
 export type Maybe<T> = T | null | undefined;

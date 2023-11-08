@@ -9,22 +9,21 @@ export default async function ListenByCollectionID({ params }: { params: { colle
     if (!id) return <NotFound />
 
     const controller = new MusicController();
-    const result = await controller.getByID(id);
-    if (!result) return <NotFound />
+    const collection = await controller.getByID(id);
+    if (!collection) return <NotFound />
 
-    // const path = S3Service.asEndpoint(result.pathtoentry);
-    const entries = await S3Service.getURLs(result.pathtoentry);
+    const trackList = await S3Service.prepareTrackList(collection.pathtoentry);
 
     return (
         <div>
             <header>
-                <h1>{result.name}</h1>
-                <p>{result.shortdescription}</p>
+                <h1>{collection.name}</h1>
+                <p>{collection.shortdescription}</p>
             </header>
 
-            <p>{result.longdescription}</p>
+            <p>{collection.longdescription}</p>
             <Suspense fallback={<p>Loading...</p>}>
-                <AudioGallery urlList={entries} />
+                <AudioGallery trackList={trackList} collection={collection} />
             </Suspense>
         </div>
     )

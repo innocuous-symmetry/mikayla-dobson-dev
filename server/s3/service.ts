@@ -4,6 +4,8 @@ import createS3Client from "./createClient";
 import { Maybe, must } from "@/util/helpers";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 
+export type TrackWithURL = (Required<Pick<_Object, "Key">> & _Object) & { url: string }
+
 export default class S3Service {
     static asEndpoint(key: string): string {
         return `${env.S3_ENDPOINT}/${env.S3_BUCKET}/${key}`;
@@ -59,22 +61,45 @@ export default class S3Service {
         }
     }
 
-    static async getURLs(key: string): Promise<Maybe<string[]>> {
+    static async getURLs(key: string): Promise<{
+        files: Maybe<_Object[]>,
+        urlList: Maybe<string[]>
+    }> {
         try {
             const files = await this.listObjects(key);
-            const output = new Array<string>();
+            const urlList = new Array<string>();
 
             files?.forEach(async(file) => {
                 if (file.Key) {
                     const url = await this.getURL(file.Key);
-                    if (url) output.push(url);
+                    if (url) urlList.push(url);
                 }
             });
 
-            return output;
+            return { files, urlList }
         } catch (error) {
             console.log({ error });
-            return null;
+            return { files: null, urlList: null }
+        }
+    }
+
+    static async prepareTrackList(key: string): Promise<TrackWithURL[]> {
+        const result = new Array<TrackWithURL>();
+
+        try {
+            const files = await this.listObjects(key);
+
+            files?.forEach(async(file) => {
+                if (file.Key) {
+                    const url = await this.getURL(file.Key);
+                    if (url) result.push({ ...file, url, Key: file.Key });
+                }
+            })
+
+            return result;
+        } catch (error) {
+            console.log({ error });
+            return new Array<TrackWithURL>();
         }
     }
 }
