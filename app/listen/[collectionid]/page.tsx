@@ -1,6 +1,6 @@
+import { AudioGallery } from "@/components/Audio/AudioGallery";
 import NotFound from "@/components/NotFound";
 import MusicController from "@/server/controllers/music.controller";
-import { MusicStreamingEntry } from "@/server/db/schema";
 import { S3Service } from "@/server/s3";
 import { Suspense } from "react";
 
@@ -12,25 +12,20 @@ export default async function ListenByCollectionID({ params }: { params: { colle
     const result = await controller.getByID(id);
     if (!result) return <NotFound />
 
-    console.log(result);
-    const entries = await S3Service.getURLs(result.pathToEntry);
+    // const path = S3Service.asEndpoint(result.pathtoentry);
+    const entries = await S3Service.getURLs(result.pathtoentry);
+    if (!entries) return <NotFound />
 
     return (
         <div>
+            <header>
+                <h1>{result.name}</h1>
+                <p>{result.shortdescription}</p>
+            </header>
+
+            <p>{result.longdescription}</p>
             <Suspense fallback={<p>Loading...</p>}>
-                <header>
-                    <h1>{result.name}</h1>
-                    <p>{result.shortDescription}</p>
-                </header>
-
-                <p>{result.longDescription}</p>
-
-                <section>
-                    { entries
-                        ? entries.map((entry: string, idx: number) => <p key={idx}>{entry}</p>)
-                        : <p>No entries found</p>
-                    }
-                </section>
+                <AudioGallery urlList={entries} />
             </Suspense>
         </div>
     )

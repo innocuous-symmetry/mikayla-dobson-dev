@@ -10,6 +10,7 @@ const env = createEnv({
         POSTGRES_PASSWORD: z.string(),
 
         S3_ENDPOINT: z.string().url(),
+        S3_REGION: z.string(),
         S3_ACCESS_KEY: z.string(),
         S3_BUCKET: z.string(),
         S3_SECRET: z.string().optional(),
@@ -22,6 +23,7 @@ const env = createEnv({
         POSTGRES_PASSWORD: process.env.POSTGRES_PASSWORD,
 
         S3_ENDPOINT: process.env.S3_ENDPOINT,
+        S3_REGION: process.env.S3_REGION,
         S3_ACCESS_KEY: process.env.S3_ACCESS_KEY,
         S3_BUCKET: process.env.S3_BUCKET,
         S3_SECRET: process.env.S3_SECRET,

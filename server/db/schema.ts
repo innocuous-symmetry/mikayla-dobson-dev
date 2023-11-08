@@ -6,9 +6,9 @@ const ZFileName = z.string().regex(filePathMatcher);
 export const ZMusicStreamingEntry = z.object({
     id: z.number(),
     name: z.string().max(100),
-    shortDescription: z.string().max(100),
-    longDescription: z.string().max(1000),
-    pathToEntry: z.string(),
+    shortdescription: z.string().max(100),
+    longdescription: z.string().max(1000),
+    pathtoentry: z.string(),
     tags: z.array(z.string().max(100)).optional(),
 });
 
