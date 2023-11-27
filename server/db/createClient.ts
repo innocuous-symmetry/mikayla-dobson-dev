@@ -1,15 +1,11 @@
 import { env } from "@/env.mjs";
-import { Client } from "pg";
+import { MongoClient } from "mongodb";
 
-export default function createDBClient() {
-    try {
-        return new Client({
-            connectionString: `${env.POSTGRES_URL}?sslmode=require`,
-            // user: env.POSTGRES_USER,
-            // password: env.POSTGRES_PASSWORD,
-        });
-    } catch(e) {
-        console.log('error creating client', e);
-        return null;
-    }
+export function createDBClient() {
+    return new MongoClient(env.MONGO_URL, {
+        auth: {
+            username: env.MONGO_USER,
+            password: env.MONGO_PASSWORD,
+        }
+    })
 }

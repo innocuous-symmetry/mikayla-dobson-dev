@@ -4,5 +4,3 @@ export class PostgresError extends Error {
         this.name = "PostgresError";
     }
 }
-
-export { default as createDBClient } from "./createClient";

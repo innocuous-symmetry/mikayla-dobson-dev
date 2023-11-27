@@ -5,6 +5,10 @@ const env = createEnv({
     server: {
         NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
 
+        MONGO_URL: z.string().url(),
+        MONGO_USER: z.string(),
+        MONGO_PASSWORD: z.string(),
+
         POSTGRES_URL: z.string().url(),
         POSTGRES_USER: z.string(),
         POSTGRES_PASSWORD: z.string(),
@@ -21,6 +25,10 @@ const env = createEnv({
         POSTGRES_URL: process.env.POSTGRES_URL,
         POSTGRES_USER: process.env.POSTGRES_USER,
         POSTGRES_PASSWORD: process.env.POSTGRES_PASSWORD,
+
+        MONGO_URL: process.env.MONGO_URL,
+        MONGO_USER: process.env.MONGO_USER,
+        MONGO_PASSWORD: process.env.MONGO_PASSWORD,
 
         S3_ENDPOINT: process.env.S3_ENDPOINT,
         S3_REGION: process.env.S3_REGION,
