@@ -48,7 +48,7 @@ export default abstract class BaseController<T extends { _id?: any, [key: string
         }
     }
 
-    async getByID(id: number): Promise<Maybe<WithId<T>>> {
+    async getByID(id: string): Promise<Maybe<WithId<T>>> {
         let result: Maybe<WithId<T>>;
 
         try {

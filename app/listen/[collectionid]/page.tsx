@@ -5,7 +5,7 @@ import { S3Service } from "@/server/s3";
 import { Suspense } from "react";
 
 export default async function ListenByCollectionID({ params }: { params: { collectionid?: string }}) {
-    const id = params.collectionid ? Number(params.collectionid) : undefined;
+    const { collectionid: id } = params;
     if (!id) return <NotFound />
 
     const controller = new MusicController();
