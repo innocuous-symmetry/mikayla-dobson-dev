@@ -5,7 +5,7 @@ export default class BlogPostController extends BaseController<BlogPost> {
     constructor() {
         super({
             tableName: "blogposts",
-            parser: ZBlogPost.safeParse,
+            parse: ZBlogPost.parse,
         })
     }
 }

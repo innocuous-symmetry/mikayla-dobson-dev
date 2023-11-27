@@ -1,24 +1,24 @@
 import { createDBClient } from '../db/createClient';
 import { Maybe } from '@/util/helpers';
-import { ParseParams, SafeParseReturnType } from 'zod';
+import { ParseParams } from 'zod';
 import { MongoClient, WithId, Filter, InsertOneResult } from 'mongodb';
 
-type FullParserType<T extends { [key: string]: any }> = (data: any, params?: Partial<ParseParams> | undefined) => SafeParseReturnType<any, T>
+type FullParserType<T extends { [key: string]: any }> = (data: any, params?: Partial<ParseParams>) => T;
 
 type ControllerOptions<T extends { [key: string]: any }> = {
     tableName: string
-    parser?: FullParserType<T>
+    parse: FullParserType<T>
 }
 
 export default abstract class BaseController<T extends { _id?: any, [key: string]: any }> {
     protected client: MongoClient
     collectionName: string
-    parser?: FullParserType<T>
+    parse: FullParserType<T>
 
     constructor(options: ControllerOptions<T>) {
         this.collectionName = options.tableName;
         this.client = createDBClient();
-        this.parser = options.parser;
+        this.parse = options.parse;
     }
 
     async getAll() {
@@ -59,6 +59,7 @@ export default abstract class BaseController<T extends { _id?: any, [key: string
 
     async post(data: T) {
         let result: Maybe<InsertOneResult<T>>;
+        this.parse(data);
 
         try {
             await this.client.connect();

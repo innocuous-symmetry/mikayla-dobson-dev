@@ -5,7 +5,7 @@ export default class MusicController extends BaseController<MusicStreamingEntry>
     constructor() {
         super({
             tableName: "music",
-            parser: ZMusicStreamingEntry.safeParse,
+            parse: ZMusicStreamingEntry.parse,
         })
     }
 }

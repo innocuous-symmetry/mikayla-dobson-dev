@@ -5,7 +5,20 @@ import { z } from "zod";
 async function main() {
     console.log("Preparing seed data...")
 
-    const connectionString = z.string().safeParse(process.argv[2]).data;
+    const nodeMajorVersion = parseInt(process.version.split(".")[0].split("v")[1]);
+    const nodeMinorVersion = parseInt(process.version.split(".")[1]);
+
+    if (nodeMajorVersion < 20 || (nodeMajorVersion === 20 && nodeMinorVersion < 10)) {
+        throw new Error("Database seed depends on Node version 20.10.0 or higher");
+    }
+
+    if (!process.env.MONGO_URL) throw new Error("Missing required variable `MONGO_URL` for database connection");
+    const connectionString = z.string().url().parse(process.env.MONGO_URL);
+
+    // check if documents and collections exist
+    const client = new MongoClient(connectionString, {
+        tlsCertificateKeyFile: process.cwd() + "/certs/mongo_cert.pem",
+    });
 
     /** @type {import("./schema").MusicStreamingEntry} */
     const jisei = {
@@ -44,7 +57,10 @@ async function main() {
     try {
         console.log("Connecting to MongoDB...")
 
-        const client = new MongoClient(connectionString);
+        const client = new MongoClient(connectionString, {
+            tlsCertificateKeyFile: process.cwd() + "/certs/mongo_cert.pem",
+        });
+
         await client.connect();
 
         const db = client.db("mikayladotdev");
@@ -63,6 +79,7 @@ async function main() {
     }
 
     console.log("Done!")
+    process.exit(0);
 }
 
 main();
