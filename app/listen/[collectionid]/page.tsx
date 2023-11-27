@@ -13,6 +13,7 @@ export default async function ListenByCollectionID({ params }: { params: { colle
     if (!collection) return <NotFound />
 
     const trackList = await S3Service.prepareTrackList(collection.pathtoentry);
+    const thumbnail = trackList.filter(t => t.Key.includes(".png") || t.Key.includes(".jpg") || t.Key.includes(".jpeg"))[0];
 
     return (
         <div>

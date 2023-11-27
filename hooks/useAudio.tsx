@@ -18,10 +18,14 @@ type AudioContextType = {
     // setCurrentTime: (currentTime: number) => void;
     handleTrackChange: (metadata: TrackWithURL, collection: MusicStreamingEntry) => void;
 
-    // identifiers
+    // identifying data
     currentTrack?: TrackWithURL;
     currentCollection?: MusicStreamingEntry;
     setCurrentCollection: (collection: MusicStreamingEntry) => void;
+
+    // properties
+    thumbnailSrc?: string;
+    setThumbnailSrc: (src: string) => void;
 }
 
 const initialContext: AudioContextType = {
@@ -39,6 +43,9 @@ const initialContext: AudioContextType = {
 
     currentCollection: undefined,
     setCurrentCollection: () => {},
+
+    thumbnailSrc: undefined,
+    setThumbnailSrc: () => {},
 }
 
 const AudioContext = createContext<AudioContextType>(initialContext);
@@ -47,6 +54,7 @@ const AudioProvider = ({ children }: { children: React.ReactNode }) => {
     const [currentCollection, setCurrentCollection] = useState<MusicStreamingEntry>();
     const [currentTrack, setCurrentTrack] = useState<TrackWithURL>();
     const [audioSource, setAudioSource] = useState<string>();
+    const [thumbnailSrc, setThumbnailSrc] = useState<string>();
     const [isPlaying, setIsPlaying] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     // const [volume, setVolume] = useState(0.5);
@@ -69,8 +77,8 @@ const AudioProvider = ({ children }: { children: React.ReactNode }) => {
 
     return (
         <AudioContext.Provider value={{
-            currentTrack, isOpen, isPlaying, currentCollection,
-            setIsOpen, handleTrackChange, setIsPlaying, setCurrentCollection,
+            currentTrack, isOpen, isPlaying, currentCollection, thumbnailSrc,
+            setIsOpen, handleTrackChange, setIsPlaying, setCurrentCollection, setThumbnailSrc
         }}>
             {children}
             <audio className="hidden" style={{ display: "none" }} ref={audioRef} controls autoPlay={isPlaying} src={audioSource} />
