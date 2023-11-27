@@ -6,9 +6,10 @@ import { useCallback } from "react";
 import { _Button } from "./_Button";
 import Link from "@/components/ui/Link";
 import { prettyFileName } from "@/util/helpers";
+import Image from "next/image";
 
 export default function AudioPlayer() {
-    const { isPlaying, isOpen, currentTrack, currentCollection, setIsPlaying, setIsOpen } = useAudio();
+    const { isPlaying, isOpen, currentTrack, currentCollection, thumbnailSrc, setIsPlaying, setIsOpen } = useAudio();
 
     const changePlayState = useCallback(() => {
         if (!currentTrack) {
@@ -22,6 +23,15 @@ export default function AudioPlayer() {
     return (
         <>
         <div id="audio-player-panel" className={`${isOpen ? "bg-stone-300 border-black dark:bg-black dark:border-stone-300 text-black dark:text-stone-300 translate-y-0 " : " translate-y-32 "} fixed bottom-0 right-0 flex items-center justify-between w-1/2 h-36 rounded-tl-xl z-0 transition-all duration-700 px-8`}>
+            {/* track thumbnail, if it exists */}
+            <div>
+                { !isOpen ? null : thumbnailSrc ? (
+                    <Image alt={`thumbnail for track ${currentTrack ? prettyFileName(currentTrack.Key) : ""}`} src={thumbnailSrc} />
+                ) : (
+                    <div className="w-24 h-24 rounded-lg bg-stone-300 dark:bg-black" />
+                )}
+            </div>
+
             {/* track info, if it is set */}
             <div className="flex flex-col">
                 { !isOpen ? null : currentTrack ? (
