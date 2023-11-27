@@ -1,10 +1,5 @@
-import { S3Client } from '@aws-sdk/client-s3';
-// import Redis from 'ioredis';
-import pg from 'pg';
 import { createDBClient } from '../db/createClient';
-import { Maybe, must } from '@/util/helpers';
-import { createS3Client } from '../s3';
-import createRedisClient from '../cache/createClient';
+import { Maybe } from '@/util/helpers';
 import { ParseParams, SafeParseReturnType } from 'zod';
 import { MongoClient, WithId, Filter, InsertOneResult } from 'mongodb';
 
@@ -27,8 +22,6 @@ export default abstract class BaseController<T extends { _id?: any, [key: string
     }
 
     async getAll() {
-        'use server';
-
         let result: Maybe<WithId<T>[]>;
 
         try {

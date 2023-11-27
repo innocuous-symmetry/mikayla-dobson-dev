@@ -3,8 +3,10 @@ import { z } from 'zod';
 const filePathMatcher = /^[1-9]{1,3}\.(wav|mp3|(jpe?g)|png)$/;
 const ZFileName = z.string().regex(filePathMatcher);
 
+const ObjectId = z.string().regex(/^[0-9a-fA-F]{24}$/);
+
 export const ZMusicStreamingEntry = z.object({
-    _id: z.any(),
+    _id: ObjectId.optional(),
     name: z.string().max(100),
     shortdescription: z.string().max(100),
     longdescription: z.string().max(1000),
@@ -19,7 +21,7 @@ export const ZMusicStreamingEntry = z.object({
 });
 
 export const ZBlogPost = z.object({
-    _id: z.any(),
+    _id: ObjectId.optional(),
     title: z.string().max(100),
     author: z.string().max(100),
     content: z.string(),

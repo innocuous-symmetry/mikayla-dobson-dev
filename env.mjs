@@ -6,8 +6,8 @@ const env = createEnv({
         NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
 
         MONGO_URL: z.string().url(),
-        MONGO_USER: z.string(),
-        MONGO_PASSWORD: z.string(),
+        MONGO_USER: z.string().optional(),
+        MONGO_PASSWORD: z.string().optional(),
 
         POSTGRES_URL: z.string().url(),
         POSTGRES_USER: z.string(),

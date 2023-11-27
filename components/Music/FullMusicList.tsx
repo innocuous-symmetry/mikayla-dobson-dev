@@ -10,7 +10,7 @@ export default function FullMusicList({ allResults }: { allResults?: Maybe<Parti
             ? allResults.map((result, idx) => {
                 return (
                     <div key={idx}>
-                        <Link href={`/listen/${result.id}`}>{result.name}</Link>
+                        <Link href={`/listen/${result._id?.toString()}`}>{result.name}</Link>
                     </div>
                 )
             }) : <p>No music available for streaming.</p>
