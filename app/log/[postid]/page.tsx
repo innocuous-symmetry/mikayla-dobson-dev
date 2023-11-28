@@ -1,43 +1,35 @@
 import BlogPostController from "@/server/controllers/blogpost.controller";
 import Image from "next/image";
+import { MDXRemote } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
+import { notFound } from "next/navigation";
 
 export default async function PostById({ params }: { params: { postid: string }}) {
     const { postid } = params;
     const controller = new BlogPostController();
+
+    console.log({ postid });
+    
     const post = await controller.getByID(postid);
+
+    if (!post) notFound();
+
+    const mdxSource = await serialize(post.content);
 
     return (
         <div>
             <h1>Post {postid}</h1>
             <p>Coming soon...</p>
 
-            { post && (
-                <article>
-                    <h2>{post.title}</h2>
-                    <p>{post.author}</p>
-                    <p>{post.posted.toDateString()}</p>
-                    { post.updated ? <p>{post.updated.toDateString()}</p> : null }
+            <article>
+                <h1>{post.title}</h1>
+                <p>{post.author}</p>
+                { post.written && <p>{post.written.toLocaleDateString()}</p> }
 
-                    { post.images && post.images.map((src, idx) => (
-                        <Image key={idx} src={src} alt={`attached media for post ${post.title}`} />
-                    ))}
+                <hr />
 
-                    <hr />
-
-                    <p>{post.content}</p>
-
-                    <div id="category-list">
-                        { post.tags?.map((tag, idx) => {
-                            return (
-                                <div key={idx}>
-                                    <a href={`/log?category=${tag}`}>{tag}</a>
-                                </div>
-                            )
-                        })}
-                    </div>
-                </article>
-            )}
-
+                <MDXRemote {...mdxSource} />
+            </article>
         </div>
     )
 }

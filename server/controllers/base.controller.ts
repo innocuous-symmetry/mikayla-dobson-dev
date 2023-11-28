@@ -1,7 +1,7 @@
 import { createDBClient } from '../db/createClient';
 import { Maybe } from '@/util/helpers';
 import { ParseParams } from 'zod';
-import { MongoClient, WithId, Filter, InsertOneResult } from 'mongodb';
+import { MongoClient, WithId, ObjectId, InsertOneResult, Filter } from 'mongodb';
 
 type FullParserType<T extends { [key: string]: any }> = (data: any, params?: Partial<ParseParams>) => T;
 
@@ -12,8 +12,8 @@ type ControllerOptions<T extends { [key: string]: any }> = {
 
 export default abstract class BaseController<T extends { _id?: any, [key: string]: any }> {
     protected client: MongoClient
-    collectionName: string
-    parse: FullParserType<T>
+    protected collectionName: string
+    protected parse: FullParserType<T>
 
     constructor(options: ControllerOptions<T>) {
         this.collectionName = options.tableName;
@@ -27,7 +27,7 @@ export default abstract class BaseController<T extends { _id?: any, [key: string
         try {
             // we'll enable cache here later
             await this.client.connect();
-            result = await this.client.db().collection<T>(this.collectionName)
+            result = await this.client.db('mikayladotdev').collection<T>(this.collectionName)
                 .find()
                 .toArray();
 
