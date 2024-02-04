@@ -8,10 +8,23 @@ env:
 on:
   push:
     branches:
-        - master
+        # just kidding, these are like, not ready at all
+        - never
+        - gonna
+        - give
+        - you
+        - up
+
+        # ... COPILOT JUST RICKROLLED ME
+        
+
+        # - master
+        # # temporarily include dev branches
+        # - mongodb
+        # - music-streaming
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - name: checkout
@@ -22,3 +35,10 @@ jobs:
       run: npm install
     - name: build check
       run: npm run build
+
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+    - name: deploy service
+      run: ""

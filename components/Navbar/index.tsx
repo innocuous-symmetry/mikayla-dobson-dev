@@ -6,6 +6,7 @@ import { RxActivityLog } from "react-icons/rx";
 import { NavbarButton } from '../ui/Button';
 import useAudio from '@/hooks/useAudio';
 import AudioPlayer from '../Music/AudioPlayer/index';
+import MobileMenu from './MobileMenu';
 
 const SHIFT_INTERVAL = 3000;
 
@@ -52,24 +53,8 @@ export default function Navbar() {
                 </button>
             </div>
         </div>
-        <div onMouseLeave={() => setMobileMenuOpen(false)} className={`flex flex-col z-50 rounded-bl-lg justify-end md:hidden fixed top-24 w-[35vw] text-right place-self-end bg-[#131313] ${mobileMenuOpen ? 'translate-x-[65vw]' : 'translate-x-[100vw]'} transition-all duration-500`}>
-            <div className="bg-slate-300 dark:bg-black h-48" />
-            <Link onClick={() => setMobileMenuOpen(false)} passHref href="/" className="w-auto px-2">
-                <p className='text-lg text-right text-white text-opacity-80 hover:text-opacity-100 uppercase p-2 border-opacity-50 hover:border-opacity-75'>Home</p>
-            </Link>
 
-            <Link onClick={() => setMobileMenuOpen(false)} passHref href="/about" className="w-auto px-2">
-                <p className='text-lg text-right text-white text-opacity-80 hover:text-opacity-100 uppercase p-2 border-opacity-50 hover:border-opacity-75'>About</p>
-            </Link>
-
-            <Link onClick={() => setMobileMenuOpen(false)} passHref href="/projects" className="w-auto px-2">
-                <p className='text-lg text-right text-white text-opacity-80 hover:text-opacity-100 hover:border-opacity-75 uppercase p-2 border-opacity-50'>Projects</p>
-            </Link>
-
-            <Link onClick={() => setMobileMenuOpen(false)} passHref href="/contact" className="w-auto px-2">
-                <p className='text-lg text-right text-white text-opacity-80 hover:text-opacity-100 uppercase p-2 border-opacity-50 hover:border-opacity-75'>Contact</p>
-            </Link>
-        </div>
+        <MobileMenu mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
         <AudioPlayer />
         </>
     )

@@ -11,7 +11,7 @@ type ControllerOptions<T extends { [key: string]: any }> = {
 }
 
 export default abstract class BaseController<T extends { _id?: any, [key: string]: any }> {
-    protected client: MongoClient
+    protected client: MongoClient | null;
     protected collectionName: string
     protected parse: FullParserType<T>
 
@@ -22,6 +22,7 @@ export default abstract class BaseController<T extends { _id?: any, [key: string
     }
 
     async getAll() {
+        if (!this.client) return null;
         let result: Maybe<WithId<T>[]>;
 
         try {
@@ -42,6 +43,7 @@ export default abstract class BaseController<T extends { _id?: any, [key: string
     }
 
     async getByID(id: string): Promise<Maybe<WithId<T>>> {
+        if (!this.client) return null;
         let result: Maybe<WithId<T>>;
 
         try {
@@ -58,6 +60,8 @@ export default abstract class BaseController<T extends { _id?: any, [key: string
     }
 
     async post(data: T) {
+        if (!this.client) return null;
+        
         let result: Maybe<InsertOneResult<T>>;
         this.parse(data);
 
