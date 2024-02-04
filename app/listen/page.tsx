@@ -3,8 +3,15 @@ import MusicController from "@/server/controllers/music.controller";
 import { Suspense } from "react";
 
 export default async function ListenIndex() {
-    const controller = new MusicController();
-    const allResults = await controller.getAll();
+    let allResults: Awaited<ReturnType<MusicController["getAll"]>>;
+
+    try {
+        const controller = new MusicController();
+        allResults = await controller.getAll();
+    } catch {
+        allResults = [];
+    }
+
 
     return (
         <div>

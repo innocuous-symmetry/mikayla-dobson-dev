@@ -20,10 +20,15 @@ package-lock.json
 # production
 /build
 
+# python
+mgmt-venv/
+blob_staging/
+
 # misc
 .DS_Store
 *.pem
 *.env
+sandbox/
 
 # debug
 npm-debug.log*

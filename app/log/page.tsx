@@ -1,8 +1,15 @@
 import BlogPostController from "@/server/controllers/blogpost.controller";
 
 export default async function DevLogIndex() {
-    const controller = new BlogPostController();
-    const posts = await controller.getAll();
+    let posts: Awaited<ReturnType<BlogPostController["getAll"]>>;
+
+    try {
+        const controller = new BlogPostController();
+        posts = await controller.getAll();
+    } catch {
+        posts = [];
+    }
+
 
     return (
         <div>
