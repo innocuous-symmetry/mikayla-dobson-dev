@@ -11,7 +11,7 @@ export default function Experience() {
 
                 <div className="h-[1px] w-full my-3 bg-rose-600 dark:bg-rose-300" />
 
-                <p className="dark:text-white leading-relaxed font-light">Building a dedicated tool for sound design professionals to browse, stream, and download from a large library of audio assets in an on-premise managed cloud solution.</p>
+                <p className="dark:text-white leading-relaxed font-light">Contributing as part of a development team building an insurance tech solution.</p>
             </Card>
 
             <Card>

@@ -37,9 +37,6 @@ export default function Navbar() {
 
             <div className="hidden md:inline-flex justify-end w-3/4">
                 <NavbarButton   href="/about"     label="About"       />
-                <NavbarButton   href="/projects"  label="Projects"    />
-                <NavbarButton   href="/read"      label="Read"        />
-                <NavbarButton   href="/listen"    label="Listen"      />
                 <NavbarButton   href="/links"     label="Links"       />
                 <NavbarButton   href="/contact"   label="Contact"     />
             </div>
@@ -60,8 +57,8 @@ export default function Navbar() {
                 <p className='text-lg text-right text-white text-opacity-80 hover:text-opacity-100 uppercase p-2 border-opacity-50 hover:border-opacity-75'>About</p>
             </Link>
 
-            <Link onClick={() => setMobileMenuOpen(false)} passHref href="/projects" className="w-auto px-2">
-                <p className='text-lg text-right text-white text-opacity-80 hover:text-opacity-100 hover:border-opacity-75 uppercase p-2 border-opacity-50'>Projects</p>
+            <Link onClick={() => setMobileMenuOpen(false)} passHref href="/links" className="w-auto px-2">
+                <p className='text-lg text-right text-white text-opacity-80 hover:text-opacity-100 hover:border-opacity-75 uppercase p-2 border-opacity-50'>Links</p>
             </Link>
 
             <Link onClick={() => setMobileMenuOpen(false)} passHref href="/contact" className="w-auto px-2">
