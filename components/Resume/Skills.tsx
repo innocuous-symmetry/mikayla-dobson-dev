@@ -15,8 +15,8 @@ const Skills = () => (
                     <div className="opacity-0 group-open:opacity-100 transition-opacity duration-500 flex flex-wrap">
                         <Chip label="Typescript" href="https://github.com/innocuous-symmetry?tab=repositories&language=typescript" />
                         <Chip label="React" href="https://github.com/innocuous-symmetry?tab=repositories&q=react" />
-                        <Chip label="AWS S3 SDK" />
                         <Chip label="Next.js" />
+                        <Chip label="AWS S3 SDK" />
                         <Chip label="tRPC" />
                         <Chip label="React Query" />
                         <Chip label="jQuery" />
@@ -53,7 +53,6 @@ const Skills = () => (
                     <div className="opacity-0 group-open:opacity-100 transition-opacity duration-500 flex flex-wrap">
                         <Chip label="Micropython" href="https://github.com/innocuous-symmetry/picosynth" />
                         <Chip label="Flask" />
-                        <Chip label="Flet" />
                     </div>
                 </details>
             </article>
@@ -80,6 +79,7 @@ const Skills = () => (
                         <RxChevronDown className="transition group-open:rotate-180" />
                     </summary>
                     <div className="opacity-0 group-open:opacity-100 transition-opacity duration-500 flex flex-wrap">
+                        <Chip label="Virtualization / Proxmox" />
                         <Chip label="Docker" />
                         <Chip label="Github Actions" />
                         <Chip label="Git / Github" />
@@ -125,24 +125,11 @@ const Skills = () => (
                         <RxChevronDown className="transition group-open:rotate-180" />
                     </summary>
                     <div className="opacity-0 group-open:opacity-100 transition-opacity duration-500 flex flex-wrap">
-                        <Chip label="Ruby / Rails" />
+                        <Chip label="C# / ASP.NET" />
                         <Chip label="Golang" />
                     </div>
                 </details>
             </article>
-
-            {/* <article className="mt-2">
-                <details className="group">
-                    <summary className="flex items-center text-rose-600 dark:text-rose-300 uppercase tracking-wide text-lg mb-2 list-none">
-                        <p className="mr-2">Natural Language Processing</p>
-                        <RxChevronDown className="transition group-open:rotate-180" />
-                    </summary>
-                    <div className="opacity-0 group-open:opacity-100 transition-opacity duration-500 flex flex-wrap">
-                        <p className="py-0.5 px-2 bg-rose-900 rounded-xl m-0.5">NLPT</p>
-                        <p className="py-0.5 px-2 bg-rose-900 rounded-xl m-0.5">Spacy</p>
-                    </div>
-                </details>
-            </article> */}
         </div>
 
         <details className="group bg-slate-400 dark:bg-slate-800 dark:bg-opacity-40 p-3 my-4 rounded-lg">
