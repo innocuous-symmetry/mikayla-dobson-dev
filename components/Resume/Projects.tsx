@@ -13,9 +13,9 @@ const Projects = () => (
         </Card>
 
         <Card>
-            <h3 className="uppercase text-2xl text-rose-600">Recipin</h3>
+            <h3 className="uppercase text-2xl text-rose-600">Unbinder</h3>
             <p className="font-light italic text-rose-300">October 2022 - present</p>
-            <p className="text-rose-300">React, Express, TypeScript, PostgreSQL</p>
+            <p className="text-rose-300">ASP.NET</p>
 
             <div className="h-[1px] w-full my-3 bg-rose-600 dark:bg-rose-300" />
 

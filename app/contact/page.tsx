@@ -1,4 +1,5 @@
 'use client';
+import { submitMessage } from "@/server/actions/contact.actions";
 import { useMemo, useState } from "react";
 
 export default function ContactPage() {
@@ -15,7 +16,7 @@ export default function ContactPage() {
             <div className="flex flex-col mx-24 items-center dark:text-white ">
                 <h1 className="text-3xl my-8 place-self-start">Thanks for your interest! I&apos;m looking forward to hearing from you.</h1>
 
-                <form className="w-full">
+                <form className="w-full" action={async () => await submitMessage({ from: email, text: message })}>
                     <div className="flex w-full">
                         <div className="flex flex-col w-1/2 mr-2">
                             <label htmlFor="name">Name</label>

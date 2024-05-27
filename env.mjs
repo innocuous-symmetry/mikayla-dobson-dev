@@ -3,15 +3,17 @@ import { z } from 'zod';
 
 const env = createEnv({
     server: {
-        POSTGRES_URL: z.string().url(),
-        POSTGRES_USER: z.string(),
-        POSTGRES_PASSWORD: z.string(),
+        SMTP_USER: z.string().optional(),
+        SMTP_PASS: z.string().optional(),
+        SMTP_TO: z.string().optional(),
+        SMTP_HOST: z.string().optional(),
     },
     runtimeEnv: {
-        POSTGRES_URL: process.env.POSTGRES_URL,
-        POSTGRES_USER: process.env.POSTGRES_USER,
-        POSTGRES_PASSWORD: process.env.POSTGRES_PASSWORD,
-    }
+        SMTP_USER: process.env.SMTP_USER,
+        SMTP_PASS: process.env.SMTP_PASS,
+        SMTP_TO: process.env.SMTP_TO,
+        SMTP_HOST: process.env.SMTP_HOST,
+    },
 })
 
 export { env }
